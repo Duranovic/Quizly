@@ -1,0 +1,119 @@
+
+@import './variables';
+body{
+  background-color: $bg-color;
+}
+label{
+  position: absolute;
+  opacity: 0;
+}
+.custom-input-w-icon{
+  position: relative;
+  &::after{
+    content: '';
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    left: 8px;
+    top: 40%;
+    transform: translateY(-50%);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  input{
+    border: none;
+    border-bottom: 1px solid #707070;
+    background: none;
+    width: 100%;
+    color: white;
+    padding-left: 40px;
+    padding-bottom: 4px;
+    &::placeholder{
+      color: $gray;
+    }
+    &:focus{
+      outline: none;
+      &~.focusIndicator{
+        width: 100%;
+      }
+    }
+  }
+  .focusIndicator{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 0;
+    background-color: $primary-color;
+    transition: width .8s ease-in-out;
+  }
+  &.custom-input-email{
+    &::after{
+      background-image: url('/assets/Icon feather-user.svg');
+    }
+  }
+  &.custom-input-password{
+    &::after{
+      width: 18px;
+      height: 18px;
+      background-size: contain;
+      background-image: url('/assets/Icon material-lock-outline.svg');
+    }
+  }
+}
+.custom-checkbox{
+  display: flex;
+  align-items: center;
+  .checkbox-wrapper{
+    position: relative;
+    display: inline-block;
+    width: 21px;
+    height: 21px;
+    input{
+      appearance: none;
+      width: 100%;
+      height: 100%;
+      background: $dark-gray;
+      border-radius: 4px;
+      &:checked{
+        &+.checkmark{
+          pointer-events: none;
+          position: absolute;
+          background-image: url('/assets/ionic-md-checkmark-green.svg');
+          background-repeat: no-repeat;
+          left: 50%;
+          top: 61%;
+          transform: translate(-50%, -50%);
+          width: 10px;
+          height: 10px;
+          background-size: contain;
+        }
+      }
+    }
+    margin-right: 16px;
+  }
+  label{
+    opacity: 1;
+    position: relative;
+    color: $text-color;
+    margin-bottom: 0;
+  }
+}
+.primary-btn{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  padding: 16px;
+  line-height: 24px;
+  transition: background-color .3s;
+  &:hover{
+    background-color: transparentize($color: $primary-color, $amount: 0.5);
+  }
+}
+a{
+  color: $primary-color;
+}
