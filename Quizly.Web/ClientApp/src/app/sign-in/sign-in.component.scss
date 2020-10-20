@@ -40,8 +40,10 @@
         p{
           color: $gray;
           font-size: 16px;
+          margin-bottom: 12px;
           @include media-xs{
             font-size: 12px;
+            margin-bottom: 8px;
           }
           a{
             font-weight: bold;

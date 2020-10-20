@@ -1,0 +1,6 @@
+// Mixins
+@mixin media-xs {
+  @media screen and (max-width: 767px) {
+    @content;
+  }
+}
