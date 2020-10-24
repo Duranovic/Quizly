@@ -1,0 +1,64 @@
+<div class="authorized-lay">
+  <aside class="asside-desktop">
+    <nav>
+      <ul>
+        <li>
+          <a href="#">
+            <img src="/assets/add-icon.svg" alt="Add icon">
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['specs']">
+            <img src="/assets/quiz-black-icon.svg" alt="Add icon">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="/assets/Survey - black-2.svg" alt="Add icon">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="/assets/poll-black-icon.svg" alt="Add icon">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="/assets/Survey - black.svg" alt="Add icon">
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+  <main>
+    <header class="header-desktop">
+        <nav>
+          <ul>
+            <li>
+              <a href="#" class="user-profile-icon green">VD</a>
+            </li>
+          </ul>
+        </nav>
+    </header>
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+  <nav class="mobile-nav">
+    <ul>
+      <li>
+        <a href="#">
+          <img src="/assets/ionic-ios-menu.svg" alt="Menu icon">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="/assets/add-icon-green.svg" alt="Add icon">
+        </a>
+      </li>
+      <li>
+        <a href="#" class="user-profile-icon white">VD</a>
+      </li>
+    </ul>
+  </nav>
+</div>

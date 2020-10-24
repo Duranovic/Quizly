@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35" viewBox="0 0 35 35">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_21" data-name="Rectangle 21" width="35" height="35"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="-0.181" y1="-0.161" x2="1.119" y2="1.234" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#202222"/>
+      <stop offset="1" stop-color="#192234"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="-0.181" y1="-0.161" x2="1.119" y2="1.234" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#192234"/>
+      <stop offset="1" stop-color="#202222"/>
+    </linearGradient>
+  </defs>
+  <g id="Survey_-_black" data-name="Survey - black" clip-path="url(#clip-path)">
+    <g id="Rectangle_1" data-name="Rectangle 1" transform="translate(0 3.577)" stroke="#fff" stroke-width="1" fill="url(#linear-gradient)">
+      <rect width="31.641" height="31.641" rx="3" stroke="none"/>
+      <rect x="0.5" y="0.5" width="30.641" height="30.641" rx="2.5" fill="none"/>
+    </g>
+    <g id="Rectangle_2" data-name="Rectangle 2" transform="translate(19)" stroke="#c6c600" stroke-width="1" fill="url(#linear-gradient-2)">
+      <rect width="16" height="18" rx="3" stroke="none"/>
+      <rect x="0.5" y="0.5" width="15" height="17" rx="2.5" fill="none"/>
+    </g>
+    <text id="S" transform="translate(23.562 12.855)" fill="#fff" font-size="11" font-family="HelveticaNeue-Bold, Helvetica Neue" font-weight="700"><tspan x="0" y="0">P</tspan></text>
+    <rect id="Rectangle_3" data-name="Rectangle 3" width="5" height="3" transform="translate(4 12)" fill="rgba(255,255,255,0.2)"/>
+    <rect id="Rectangle_4" data-name="Rectangle 4" width="5" height="4" transform="translate(4 18)" fill="rgba(255,255,255,0.2)"/>
+    <rect id="Rectangle_5" data-name="Rectangle 5" width="5" height="3" transform="translate(4 25)" fill="rgba(255,255,255,0.2)"/>
+  </g>
+</svg>

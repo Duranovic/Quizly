@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35" viewBox="0 0 35 35">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_12" data-name="Rectangle 12" width="35" height="35"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="-0.181" y1="-0.161" x2="1.119" y2="1.234" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#202222"/>
+      <stop offset="1" stop-color="#192234"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="-0.181" y1="-0.161" x2="1.119" y2="1.234" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#192234"/>
+      <stop offset="1" stop-color="#202222"/>
+    </linearGradient>
+  </defs>
+  <g id="Survey_-_black" data-name="Survey - black" clip-path="url(#clip-path)">
+    <g id="Rectangle_1" data-name="Rectangle 1" transform="translate(0 3.555)" stroke="#fff" stroke-width="1" fill="url(#linear-gradient)">
+      <rect width="31.445" height="31.445" rx="3" stroke="none"/>
+      <rect x="0.5" y="0.5" width="30.445" height="30.445" rx="2.5" fill="none"/>
+    </g>
+    <g id="Rectangle_2" data-name="Rectangle 2" transform="translate(18.047)" stroke="#fff" stroke-width="1" fill="url(#linear-gradient-2)">
+      <rect width="16.953" height="16.953" rx="3" stroke="none"/>
+      <rect x="0.5" y="0.5" width="15.953" height="15.953" rx="2.5" fill="none"/>
+    </g>
+    <text id="S" transform="translate(22.422 12.82)" fill="#fff" font-size="12" font-family="HelveticaNeue-Bold, Helvetica Neue" font-weight="700"><tspan x="0" y="0">S</tspan></text>
+    <rect id="Rectangle_3" data-name="Rectangle 3" width="3.828" height="3.828" transform="translate(4.375 11.484)" fill="rgba(255,255,255,0.2)"/>
+    <rect id="Rectangle_4" data-name="Rectangle 4" width="3.828" height="3.828" transform="translate(4.375 17.5)" fill="rgba(255,255,255,0.2)"/>
+    <rect id="Rectangle_5" data-name="Rectangle 5" width="3.828" height="3.828" transform="translate(4.375 23.516)" fill="rgba(255,255,255,0.2)"/>
+  </g>
+</svg>

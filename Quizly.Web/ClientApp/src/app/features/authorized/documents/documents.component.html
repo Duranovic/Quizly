@@ -1,0 +1,230 @@
+<div class="documents-container">
+    <ul class="tabs">
+        <li  [ngClass]="activePanel=='recent' ? 'active' : ''">
+            <button (click)="setActivePanel('recent')">
+              <span tabindex="-1">Recent</span>
+            </button>
+        </li>
+        <li  [ngClass]="activePanel=='your-documents' ? 'active' : ''">
+          <button (click)="setActivePanel('your-documents')">
+            <span tabindex="-1">Your documents</span>
+          </button>
+      </li>
+        <li [ngClass]="activePanel=='shared' ? 'active' : ''">
+            <button (click)="setActivePanel('shared')">
+              <span tabindex="-1">Shared with me</span>
+            </button>
+        </li>
+        <li [ngClass]="activePanel=='pinned' ? 'active' : ''">
+            <button (click)="setActivePanel('pinned')">
+              <span tabindex="-1">Pinned</span>
+            </button>
+        </li>
+    </ul>
+    <div class="panels">
+      <section class="recent-panel" *ngIf="activePanel=='recent'" >
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Book 4</td>
+              <td>3 Sept</td>
+              <td>Only you</td>
+            </tr>
+            <tr>
+              <td>Working timesheet - Velid (the …</td>
+              <td>1 May</td>
+              <td>Shared</td>
+            </tr>
+            <tr>
+              <td>Valtech</td>
+              <td>1 May</td>
+              <td>Shared</td>
+            </tr>
+            <tr>
+              <td>Velid @ Infinity Mesh doo</td>
+              <td>17 Sept 2019</td>
+              <td>Only You</td>
+            </tr>
+            <tr>
+              <td>Book 4</td>
+              <td>3 Sept</td>
+              <td>Only you</td>
+            </tr>
+            <tr>
+              <td>Working timesheet - Velid (the …</td>
+              <td>1 May</td>
+              <td>Shared</td>
+            </tr>
+            <tr>
+              <td>Valtech</td>
+              <td>1 May</td>
+              <td>Shared</td>
+            </tr>
+            <tr>
+              <td>Velid @ Infinity Mesh doo</td>
+              <td>17 Sept 2019</td>
+              <td>Only You</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="recent-panel" *ngIf="activePanel=='your-documents'" >
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Book 4</td>
+              <td>3 Sept</td>
+              <td>Only you</td>
+            </tr>
+            <tr>
+              <td>Working timesheet - Velid (the …</td>
+              <td>1 May</td>
+              <td>Shared</td>
+            </tr>
+            <tr>
+              <td>Valtech</td>
+              <td>1 May</td>
+              <td>Shared</td>
+            </tr>
+            <tr>
+              <td>Velid @ Infinity Mesh doo</td>
+              <td>17 Sept 2019</td>
+              <td>Only You</td>
+            </tr>
+            <tr>
+              <td>Book 4</td>
+              <td>3 Sept</td>
+              <td>Only you</td>
+            </tr>
+            <tr>
+              <td>Working timesheet - Velid (the …</td>
+              <td>1 May</td>
+              <td>Shared</td>
+            </tr>
+            <tr>
+              <td>Valtech</td>
+              <td>1 May</td>
+              <td>Shared</td>
+            </tr>
+            <tr>
+              <td>Velid @ Infinity Mesh doo</td>
+              <td>17 Sept 2019</td>
+              <td>Only You</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="shared-panel" *ngIf="activePanel=='shared'">
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Book 4</td>
+              <td>3 Sept</td>
+              <td>velid.duranovic@edu.fit.ba</td>
+            </tr>
+            <tr>
+              <td>Working timesheet - Velid (the …</td>
+              <td>1 May</td>
+              <td>Shared</td>
+            </tr>
+            <tr>
+              <td>Valtech</td>
+              <td>1 May</td>
+              <td>salvedin@valtech.com</td>
+            </tr>
+            <tr>
+              <td>Velid @ Infinity Mesh doo</td>
+              <td>17 Sept 2019</td>
+              <td>admir@infinitymesh.com</td>
+            </tr>
+            <tr>
+              <td>Book 4</td>
+              <td>3 Sept</td>
+              <td>velidprivate@gmail.com</td>
+            </tr>
+            <tr>
+              <td>Working timesheet - Velid (the …</td>
+              <td>1 May</td>
+              <td>admir@infinitymesh.com</td>
+            </tr>
+            <tr>
+              <td>Valtech</td>
+              <td>1 May</td>
+              <td>velid.duranovic@edu.fit.ba</td>
+            </tr>
+            <tr>
+              <td>Velid @ Infinity Mesh doo</td>
+              <td>17 Sept 2019</td>
+              <td>admirmujkic@infinitymesh.com</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="pinned" *ngIf="activePanel=='pinned'">
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Book 4</td>
+              <td>3 Sept</td>
+              <td>velid.duranovic@edu.fit.ba</td>
+            </tr>
+            <tr>
+              <td>Working timesheet - Velid (the …</td>
+              <td>1 May</td>
+              <td>Shared</td>
+            </tr>
+            <tr>
+              <td>Valtech</td>
+              <td>1 May</td>
+              <td>salvedin@valtech.com</td>
+            </tr>
+            <tr>
+              <td>Velid @ Infinity Mesh doo</td>
+              <td>17 Sept 2019</td>
+              <td>admir@infinitymesh.com</td>
+            </tr>
+            <tr>
+              <td>Book 4</td>
+              <td>3 Sept</td>
+              <td>velidprivate@gmail.com</td>
+            </tr>
+            <tr>
+              <td>Working timesheet - Velid (the …</td>
+              <td>1 May</td>
+              <td>admir@infinitymesh.com</td>
+            </tr>
+            <tr>
+              <td>Valtech</td>
+              <td>1 May</td>
+              <td>velid.duranovic@edu.fit.ba</td>
+            </tr>
+            <tr>
+              <td>Velid @ Infinity Mesh doo</td>
+              <td>17 Sept 2019</td>
+              <td>admirmujkic@infinitymesh.com</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+</div>
