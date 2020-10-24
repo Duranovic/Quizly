@@ -59,20 +59,53 @@ table{
     tr{
       border-bottom: 1px solid $gray;
       color: $gray;
+      transition: background-color .3s, color .3s;
       &:last-child{
         border: none;
       }
       td{
+        position: relative;
         padding: 13px 0;
         font-size: 12px;
         &:first-child{
           width: 50%;
+          transition: padding .5s;
         }
         &:nth-child(2){
           width: 20%;
         }
         &:nth-child(3){
           width: 30%;
+        }
+      }
+      &:hover{
+        cursor: pointer;
+        background-color: gainsboro;
+        td{
+          color: black;
+          &:first-child{
+            padding-left: 16px;
+          }
+        }
+        .options{
+          opacity: 1;
+        }
+      }
+      .options{
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 20px;
+        opacity: 0;
+        span{
+          display: inline-block;
+          margin-right: 8px;
+          padding: 4px 10px;
+          border-radius: 20px;
+          &:hover{
+            background-color: $gray;
+          }
         }
       }
     }
