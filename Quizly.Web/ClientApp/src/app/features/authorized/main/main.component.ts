@@ -15,6 +15,9 @@ export class MainComponent implements OnInit {
   closeCreateDocumentModalVisibillity(){
     this.isVisibleCreateDocumentModal = false;
   }
+  isCreateNewDocumentModalChange($event){
+    this.isVisibleCreateDocumentModal = $event;
+  }
   ngOnInit() {
   }
 
