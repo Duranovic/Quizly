@@ -3,6 +3,9 @@
 body{
   background-color: $bg-color;
 }
+main{
+  position: relative;
+}
 label{
   position: absolute;
   opacity: 0;
@@ -76,6 +79,14 @@ ul{
         height: 14px;
         width: 14px;
       }
+    }
+  }
+  &.no-icon{
+    input{
+      padding-left: 0;
+    }
+    &::after{
+      content: none;
     }
   }
 }

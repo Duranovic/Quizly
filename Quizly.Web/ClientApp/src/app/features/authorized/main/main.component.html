@@ -3,29 +3,44 @@
     <nav>
       <ul>
         <li>
-          <a href="#">
+          <button (click)="openCreateDocumentModalVisibillity()">
             <img src="/assets/add-icon.svg" alt="Add icon">
-          </a>
+          </button>
+          <div class="custom-tooltip">
+            Add new document
+          </div>
         </li>
         <li>
           <a [routerLink]="['specs']">
             <img src="/assets/quiz-black-icon.svg" alt="Add icon">
           </a>
+          <div class="custom-tooltip">
+            Quiz
+          </div>
         </li>
         <li>
           <a href="#">
             <img src="/assets/Survey - black-2.svg" alt="Add icon">
           </a>
+          <div class="custom-tooltip">
+            Survey
+          </div>
         </li>
         <li>
           <a href="#">
             <img src="/assets/poll-black-icon.svg" alt="Add icon">
           </a>
+          <div class="custom-tooltip">
+            Poll
+          </div>
         </li>
         <li>
           <a href="#">
             <img src="/assets/Survey - black.svg" alt="Add icon">
           </a>
+          <div class="custom-tooltip">
+            Survey
+          </div>
         </li>
       </ul>
     </nav>
@@ -42,6 +57,50 @@
     </header>
     <div class="main-content">
       <router-outlet></router-outlet>
+      <div class="create-new-document-container" *ngIf="isVisibleCreateDocumentModal">
+        <div class="create-document-inner-container">
+          <button class="close-modal-icon" (click)="closeCreateDocumentModalVisibillity()">
+            <img src="/assets/ionic-md-close.svg" alt="Close modal">
+          </button>
+          <div class="form-container">
+            <div class="form-group">
+              <label>Select type of document</label>
+              <ul>
+                <li>
+                  <button>
+                    <img src="/assets/quiz-black-icon.svg" alt="Add icon">
+                  </button>
+                </li>
+                <li>
+                  <button>
+                    <img src="/assets/Survey - black-2.svg" alt="Add icon">
+                  </button>
+                </li>
+                <li>
+                  <button>
+                    <img src="/assets/poll-black-icon.svg" alt="Add icon">
+                  </button>
+                </li>
+                <li>
+                  <button>
+                    <img src="/assets/Survey - black.svg" alt="Add icon">
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <div class="form-group">
+                <label for="email">Choose a name for document</label>
+                <div class="custom-input-w-icon no-icon">
+                  <input id="email" name="email" type="text" placeholder="Enter a name">
+                  <span class="focusIndicator"></span>
+                </div>
+            </div>
+            <div class="form-group">
+              <button class="primary-btn">Create</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
   <nav class="mobile-nav">
