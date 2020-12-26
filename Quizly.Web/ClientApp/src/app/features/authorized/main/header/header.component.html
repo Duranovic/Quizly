@@ -1,0 +1,44 @@
+<header class="header-desktop">
+  <nav>
+    <ul class="navigation-list">
+      <li>
+        <a href="#">
+          <img style="width: 30px; height: 30x;" src="/assets/logo.svg" alt="logo">
+        </a>
+      </li>
+      <li>
+        <button class="user-profile-icon green" (click)="togglePopupProfilePopup()">VD</button>
+        <div class="profile-popup" *ngIf="showProfilePopup" >
+          <div class="profile-popup__user-details">
+            <p class="profile-popup__username">Velid Duranović</p>
+            <span class="profile-popup__email">veld_work@outlook.com</span>
+          </div>
+          <ul class="profile-popup__links">
+            <li>
+              <a href="#">
+                <img src="/assets/material-account-box.svg" alt="a">
+                <span>My Profile</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="/assets/awesome-user-cog.svg" alt="a">
+                <span>Account</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="/assets/ionic-ios-log-out.svg" alt="a">
+                <span>Log out</span>
+              </a>
+            </li>
+          </ul>
+          <div class="profile-popup__footer">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of service</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>

@@ -1,20 +1,7 @@
 <div class="authorized-lay">
   <app-aside (isCreateNewDocumentModalOpened)="isCreateNewDocumentModalChange($event)"></app-aside>
   <main>
-    <header class="header-desktop">
-        <nav>
-          <ul>
-            <li>
-              <a href="#">
-                <img style="width: 30px; height: 30x;" src="/assets/logo.svg" alt="logo">
-              </a>
-            </li>
-            <li>
-              <a href="#" class="user-profile-icon green">VD</a>
-            </li>
-          </ul>
-        </nav>
-    </header>
+    <app-header></app-header>
     <div class="main-content">
       <router-outlet></router-outlet>
       <div class="create-new-document-container" *ngIf="isVisibleCreateDocumentModal">

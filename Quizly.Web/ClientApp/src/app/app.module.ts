@@ -27,7 +27,8 @@ import { DocumentsComponent } from './features/authorized/documents/documents.co
     FormsModule,
     FeaturesModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+      {path: '', redirectTo: 'dashboard', pathMatch: "full"},
+      // { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: NavMenuComponent },
       { path: 'sign-up', component: SignUpComponent },
       { path: 'sign-in', component: SignInComponent },
