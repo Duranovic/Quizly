@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quizly.Web", "Quizly.Web\Qu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quizly.API", "Quizly.API\Quizly.API.csproj", "{138E692F-FC7D-43B2-B71D-9AF614514ED4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quizly.Model", "Quizly.Model\Quizly.Model.csproj", "{5C20EF0F-4BC5-4FD2-A7B3-406C0EB23C98}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,5 +21,9 @@ Global
 		{138E692F-FC7D-43B2-B71D-9AF614514ED4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{138E692F-FC7D-43B2-B71D-9AF614514ED4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{138E692F-FC7D-43B2-B71D-9AF614514ED4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C20EF0F-4BC5-4FD2-A7B3-406C0EB23C98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C20EF0F-4BC5-4FD2-A7B3-406C0EB23C98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C20EF0F-4BC5-4FD2-A7B3-406C0EB23C98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C20EF0F-4BC5-4FD2-A7B3-406C0EB23C98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
