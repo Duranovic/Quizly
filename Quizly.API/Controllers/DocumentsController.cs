@@ -10,7 +10,7 @@ using Quizly.Model;
 
 namespace Quizly.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     public class DocumentsController : Controller
     {
         private readonly IDocumentService _documentService;
@@ -18,10 +18,23 @@ namespace Quizly.API.Controllers
         {
             _documentService = documentService;
         }
+
         [HttpGet]
         public IEnumerable<Document> Get()
         {
             return _documentService.Get();
         }
+
+        [HttpGet]
+        public IEnumerable<Document> GetPinned()
+        {
+            return _documentService.GetPinned();
+        }
+
+        [HttpGet]
+        public IEnumerable<Document> GetRecent()
+        {
+            return _documentService.GetRecent();
+        } 
     }
 }
