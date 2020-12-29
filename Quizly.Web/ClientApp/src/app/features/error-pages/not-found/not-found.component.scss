@@ -1,0 +1,90 @@
+@import '../../../../variables';
+.secondary-button{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  border: 1px solid #707070;
+  padding: 14px 20px;
+  overflow: hidden;
+  z-index: 1;
+  @include media-xs{
+    padding: 12px 20px 12px 14px;
+  }
+  svg{
+    width: 20px;
+    height: auto;
+    margin-right: 8px;
+    fill: #D1D1D1;
+    transition: fill .3s;
+  }
+  span{
+    color: #D1D1D1;
+    transition: color .3s;
+    @include media-xs{
+      font-size: 16px;
+    }
+  }
+  &::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    background-color: white;
+    transition: width .5s ease-in-out;
+    z-index: -1;
+  }
+  &:hover{
+    &::after{
+      width: 100%;
+    }
+    span{
+      color: #707070;
+    }
+    svg{
+      fill: #1C1E24 ;
+    }
+  }
+
+}
+
+.not-found-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 10vw;
+  @include media-xs{
+    padding-top: 30vw;
+  }
+  @include media-sm{
+    padding-top: 30vw;
+  }
+  .not-found-container__text{
+    margin-bottom: 100px;
+    text-align: center;
+    @include media-xs{
+      margin-bottom: 57px;
+    }
+    h1{
+      font-size: 200px;
+      color: transparentize($color: #707070, $amount: 0.74);
+      margin-bottom: 0;
+      @include media-xs{
+        font-size: 100px;
+      }
+    }
+    h2{
+      font-size: 74px;
+      color: #D1D1D1;
+      margin-top: -86px;
+      @include media-xs{
+        font-size: 32px;
+        margin-top: -41px;
+      }
+    }
+  }
+}

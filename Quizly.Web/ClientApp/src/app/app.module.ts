@@ -14,6 +14,7 @@ import { EnterPasswordComponent } from './features/authentification/enter-passwo
 import { FeaturesModule } from './features/features.module';
 import { MainComponent } from './features/authorized/main/main.component';
 import { DocumentsComponent } from './features/authorized/documents/documents.component';
+import { NotFoundComponent } from './features/error-pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -28,19 +29,20 @@ import { DocumentsComponent } from './features/authorized/documents/documents.co
     FeaturesModule,
     RouterModule.forRoot([
       {path: '', redirectTo: 'dashboard', pathMatch: "full"},
-      // { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: NavMenuComponent },
       { path: 'sign-up', component: SignUpComponent },
       { path: 'sign-in', component: SignInComponent },
       { path: 'forgot-password', component: ForgotPasswordComponent },
       { path: 'enter-password', component: EnterPasswordComponent },
+      {path: 'not-found', component: NotFoundComponent},
       { path: 'dashboard', component: MainComponent ,
           children: [
             {path: '', redirectTo: 'documents', pathMatch: 'full'},
             {path: 'documents', component: DocumentsComponent},
-            {path: 'specs', component: DocumentsComponent}
+            {path: 'specs', component: DocumentsComponent},
           ]
-      }
+      },
+      {path: "**", redirectTo: 'not-found', pathMatch: "full"}
     ])
   ],
   providers: [],
