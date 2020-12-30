@@ -5,8 +5,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './features/home/home.component';
 import { SignUpComponent } from './features/authentification/sign-up/sign-up.component';
 import { SignInComponent } from './features/authentification/sign-in/sign-in.component';
 import { ForgotPasswordComponent } from './features/authentification/forgot-password/forgot-password.component';
@@ -19,7 +18,6 @@ import { NotFoundComponent } from './features/error-pages/not-found/not-found.co
 @NgModule({
   declarations: [
     AppComponent,
-    NavMenuComponent,
     HomeComponent,
   ],
   imports: [
@@ -29,7 +27,7 @@ import { NotFoundComponent } from './features/error-pages/not-found/not-found.co
     FeaturesModule,
     RouterModule.forRoot([
       {path: '', redirectTo: 'dashboard', pathMatch: "full"},
-      { path: 'counter', component: NavMenuComponent },
+      { path: 'home', component: HomeComponent },
       { path: 'sign-up', component: SignUpComponent },
       { path: 'sign-in', component: SignInComponent },
       { path: 'forgot-password', component: ForgotPasswordComponent },
