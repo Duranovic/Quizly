@@ -12,21 +12,21 @@ namespace Quizly.API.Services
         {
             _documents = new List<Document>()
             {
-                new Document { Id = 13, Title = "Book 4", DateTime = DateTime.UtcNow},
-                new Document { Id = 2, Title = "Working timesheet - Velid (the …", DateTime = DateTime.UtcNow },
-                new Document { Id = 3, Title = "Valtech", DateTime = DateTime.UtcNow },
-                new Document { Id = 4, Title = "Velid @ Infinity Mesh doo", DateTime = DateTime.UtcNow },
-                new Document { Id = 54, Title = "Document 1", DateTime = DateTime.UtcNow },
-                new Document { Id = 6, Title = "Working timesheet - Velid (the …", DateTime = DateTime.UtcNow },
-                new Document { Id = 7, Title = "Valtech", DateTime = DateTime.UtcNow },
-                new Document { Id = 82, Title = "Velid @ Infinity Mesh doo", DateTime = DateTime.UtcNow },
-                new Document { Id = 9, Title = "Document 2", DateTime = DateTime.UtcNow },
-                new Document { Id = 10, Title = "Book 5", DateTime = DateTime.UtcNow },
-                new Document { Id = 11, Title = "Document 3", DateTime = DateTime.UtcNow },
-                new Document { Id = 8, Title = "Velid @ Infinity Mesh doo", DateTime = DateTime.UtcNow },
-                new Document { Id = 12, Title = "Document 2", DateTime = DateTime.UtcNow },
-                new Document { Id = 13, Title = "Book 5", DateTime = DateTime.UtcNow },
-                new Document { Id = 144, Title = "Document 3", DateTime = DateTime.UtcNow }
+                new Document { id = 13, title = "Book 4", dateTime = DateTime.UtcNow},
+                new Document { id = 2, title = "Working timesheet - Velid (the …", dateTime = DateTime.UtcNow },
+                new Document { id = 3, title = "Valtech", dateTime = DateTime.UtcNow },
+                new Document { id = 4, title = "Velid @ Infinity Mesh doo", dateTime = DateTime.UtcNow },
+                new Document { id = 54, title = "Document 1", dateTime = DateTime.UtcNow },
+                new Document { id = 6, title = "Working timesheet - Velid (the …", dateTime = DateTime.UtcNow },
+                new Document { id = 7, title = "Valtech", dateTime = DateTime.UtcNow },
+                new Document { id = 82, title = "Velid @ Infinity Mesh doo", dateTime = DateTime.UtcNow },
+                new Document { id = 9, title = "Document 2", dateTime = DateTime.UtcNow },
+                new Document { id = 10, title = "Book 5", dateTime = DateTime.UtcNow },
+                new Document { id = 11, title = "Document 3", dateTime = DateTime.UtcNow },
+                new Document { id = 8, title = "Velid @ Infinity Mesh doo", dateTime = DateTime.UtcNow },
+                new Document { id = 12, title = "Document 2", dateTime = DateTime.UtcNow },
+                new Document { id = 13, title = "Book 5", dateTime = DateTime.UtcNow },
+                new Document { id = 144, title = "Document 3", dateTime = DateTime.UtcNow }
             };
         }
 
@@ -36,11 +36,11 @@ namespace Quizly.API.Services
         }
         public IEnumerable<Document> GetRecent()
         {
-            return _documents.OrderBy(x=>x.Id).Take(5);
+            return _documents.OrderBy(x=>x.id).Take(5);
         }
         public IEnumerable<Document> GetPinned()
         {
-            return _documents.Where(x => x.Pinned);
+            return _documents.Where(x => x.pinned);
         }
     }
 }

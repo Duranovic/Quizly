@@ -10,7 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Quizly.API.Services;
+using Quizly.Model;
 
 namespace Quizly.API
 {
@@ -30,7 +32,13 @@ namespace Quizly.API
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen();
 
-            services.AddScoped<IDocumentService, DocumentService>();
+            services.Configure<QuizlyDatabaseSettings>(
+    Configuration.GetSection(nameof(QuizlyDatabaseSettings)));
+
+            services.AddSingleton<IQuizlyDatabaseSettings>(sp =>
+                sp.GetRequiredService<IOptions<QuizlyDatabaseSettings>>().Value);
+
+            services.AddScoped<IDocumentService, DocumentMongoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
