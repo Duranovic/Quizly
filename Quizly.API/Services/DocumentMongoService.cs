@@ -13,7 +13,7 @@ namespace Quizly.API.Services
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
 
-            _documents = database.GetCollection<Document>(settings.DocumentsCollectionName);
+            _documents = database.GetCollection<Document>("Documents");
         }
 
         public IEnumerable<Document> Get()
