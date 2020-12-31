@@ -108,6 +108,15 @@ table{
           &:hover{
             background-color: rgb(194, 194, 194)
           }
+          svg{
+            transition: transform .3s ease-out, fill .3s;
+          }
+          &.pinned{
+                svg{
+                  fill: $dark-green;
+                  transform: rotate(-28deg);
+                }
+          }
         }
       }
     }
