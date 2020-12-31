@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Quizly.API.Services;
 using Quizly.Model;
@@ -35,6 +36,12 @@ namespace Quizly.API.Controllers
         public IEnumerable<Document> GetRecent()
         {
             return _documentService.GetRecent();
-        } 
+        }
+
+        [HttpPatch("{id}")]
+        public Document PinDocument(int id)
+        {
+            return _documentService.PinDocument(id);
+        }
     }
 }
