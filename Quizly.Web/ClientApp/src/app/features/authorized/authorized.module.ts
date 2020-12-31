@@ -5,6 +5,7 @@ import { MainComponent } from './main/main.component';
 import { DocumentsComponent } from './documents/documents.component';
 import { AsideComponent } from './main/aside/aside.component';
 import { HeaderComponent } from './main/header/header.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 
@@ -12,7 +13,8 @@ import { HeaderComponent } from './main/header/header.component';
   declarations: [MainComponent, DocumentsComponent, AsideComponent, HeaderComponent],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    SharedModule
   ]
 })
 export class AuthorizedModule { }

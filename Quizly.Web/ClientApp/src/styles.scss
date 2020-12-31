@@ -180,3 +180,61 @@ ul{
 a{
   color: $primary-color;
 }
+.loading-spinner {
+  &.overlay {
+      &:before {
+          content: "";
+          // background-color: #f5f7fa;
+          // opacity: 0.5;
+          height: 100%;
+          background-color: transparentize($color:$bg-color, $amount: 0.1) ;
+          opacity: 1;
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          z-index: 99;
+      }
+  }
+
+  &:after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 100;
+      width: 64px;
+      height: 64px;
+      margin-left: -32px;
+      margin-top: -32px;
+      border: 1px solid $text-color;
+      border-radius: 50%;
+      border-left-color: transparent;
+      border-right-color: transparent;
+      animation: cssload-spin 800ms infinite linear;
+  }
+
+  $i: 12;
+
+  @while $i <= 64 {
+      &.size-#{$i} {
+          &:after {
+              height: #{$i}px;
+              width: #{$i}px;
+              margin-left: -#{$i / 2}px;
+              margin-top: -#{$i / 2}px;
+          }
+      }
+
+      $i: $i + 2;
+  }
+}
+
+@keyframes cssload-spin {
+  100% {
+      transform: rotate(360deg);
+      transform: rotate(360deg);
+  }
+}
+

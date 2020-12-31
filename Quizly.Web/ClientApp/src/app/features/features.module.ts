@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AuthentificationModule } from './authentification/authentification.module';
 import { AuthorizedModule } from './authorized/authorized.module';
 import { ErrorPagesModule } from './error-pages/error-pages.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -14,11 +15,8 @@ import { ErrorPagesModule } from './error-pages/error-pages.module';
     CommonModule,
     AuthentificationModule,
     AuthorizedModule,
-    ErrorPagesModule
-  ],
-  exports: [
-    // AuthentificationModule
+    ErrorPagesModule,
+    SharedModule
   ]
-
 })
 export class FeaturesModule { }

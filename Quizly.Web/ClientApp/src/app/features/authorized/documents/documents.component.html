@@ -21,7 +21,7 @@
             </button>
         </li>
     </ul>
-    <div class="panels">
+    <div class="panels" [spinner]="spinner.isBusy" [overlay]="true">
       <section class="recent-panel" *ngIf="activePanel=='recent'" >
         <table>
           <thead>
@@ -58,7 +58,7 @@
           </tbody>
         </table>
       </section>
-      <section class="recent-panel" *ngIf="activePanel=='your-documents'" >
+      <section class="recent-panel" *ngIf="activePanel=='your-documents'">
         <table>
           <thead>
             <tr>
@@ -89,7 +89,7 @@
           </tbody>
         </table>
       </section>
-      <section class="shared-panel" *ngIf="activePanel=='shared'">
+      <section class="shared-panel" *ngIf="activePanel=='shared'" >
         <table>
           <thead>
             <tr>
@@ -140,7 +140,7 @@
           </tbody>
         </table>
       </section>
-      <section class="pinned" *ngIf="activePanel=='pinned'">
+      <section class="pinned" *ngIf="activePanel=='pinned'" >
         <table>
           <thead>
             <tr>
