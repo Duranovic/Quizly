@@ -5,48 +5,56 @@
     <div class="main-content">
       <router-outlet></router-outlet>
       <div class="create-new-document-container" *ngIf="isVisibleCreateDocumentModal">
-        <div class="create-document-inner-container">
-          <button class="close-modal-icon" (click)="closeCreateDocumentModalVisibillity()">
-            <img src="/assets/ionic-md-close.svg" alt="Close modal">
-          </button>
-          <div class="form-container">
-            <div class="form-group">
-              <label>Select type of document</label>
-              <ul>
-                <li>
-                  <button>
-                    <img src="/assets/quiz-black-icon.svg" alt="Add icon">
-                  </button>
-                </li>
-                <li>
-                  <button>
-                    <img src="/assets/Survey - black-2.svg" alt="Add icon">
-                  </button>
-                </li>
-                <li>
-                  <button>
-                    <img src="/assets/poll-black-icon.svg" alt="Add icon">
-                  </button>
-                </li>
-                <li>
-                  <button>
-                    <img src="/assets/Survey - black.svg" alt="Add icon">
-                  </button>
-                </li>
-              </ul>
+          <form class="create-document-inner-container" [formGroup]="documentForm" (ngSubmit)="onSubmit()">
+            <button type="button" class="close-modal-icon" (click)="closeCreateDocumentModalVisibillity()">
+              <img src="/assets/ionic-md-close.svg" alt="Close modal">
+            </button>
+            <div class="form-container">
+              <div class="form-group">
+                <label>Select type of document</label>
+                <ul>
+                  <li>
+                      <label for="quiz-document" (click)="documentTypeClick($event)" tabindex="0">
+                        <img class="black" src="/assets/Quiz - black.svg" alt="Add icon" tabindex="-1">
+                        <img class="original" src="/assets/Quiz - original.svg" alt="Add icon" tabindex="-1">
+                      </label>
+                      <input type="radio" id="quiz-document" name="type" value="quiz" formControlName="type">
+                  </li>
+                  <li>
+                      <label for="vote-document" (click)="documentTypeClick($event)" tabindex="0">
+                        <img class="black" src="/assets/Vote - black.svg" alt="Vote black icon" tabindex="-1">
+                        <img class="original" src="/assets/Vote - original.svg" alt="Vote selected icon" tabindex="-1">
+                      </label>
+                      <input type="radio" id="vote-document" name="type" value="vote" formControlName="type">
+                  </li>
+                  <li>
+                      <label for="poll-document" (click)="documentTypeClick($event)" tabindex="0">
+                        <img class="black" src="/assets/Poll - black.svg" alt="Poll black icon" tabindex="-1">
+                        <img class="original" src="/assets/Poll - original.svg" alt="Poll selected icon" tabindex="-1">
+                      </label>
+                      <input id="poll-document" type="radio" name="type" value="poll" formControlName="type">
+                  </li>
+                  <li>
+                      <label for="survey-document"  (click)="documentTypeClick($event)" tabindex="0">
+                        <img class="black" src="/assets/Survey - black.svg" alt="Survey black icon" tabindex="-1">
+                        <img class="original" src="/assets/Survey - original.svg" alt="Survey selected icon" tabindex="-1">
+                      </label>
+                      <input id="survey-document" type="radio" name="type" value="survey" formControlName="type">
+                  </li>
+                </ul>
+              </div>
+              <div class="form-group">
+                  <label for="document_name">Choose a name for document</label>
+                  <div class="custom-input-w-icon no-icon">
+                    <input required id="document_name" name="document_name" type="text" placeholder="Enter a name" formControlName="title">
+                    <span class="focusIndicator"></span>
+                  </div>
+              </div>
+              <div class="form-group">
+                <button class="primary-btn">Create</button>
+              </div>
             </div>
-            <div class="form-group">
-                <label for="email">Choose a name for document</label>
-                <div class="custom-input-w-icon no-icon">
-                  <input id="email" name="email" type="text" placeholder="Enter a name">
-                  <span class="focusIndicator"></span>
-                </div>
-            </div>
-            <div class="form-group">
-              <button class="primary-btn">Create</button>
-            </div>
-          </div>
-        </div>
+          </form>
       </div>
     </div>
   </main>

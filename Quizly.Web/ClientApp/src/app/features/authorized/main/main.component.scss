@@ -59,11 +59,41 @@
       margin-top: 22px;
       li{
         margin-right: 26px;
-        button{
-          padding: 0;
+        label{
+          position: relative;
           margin: 0;
-          background: none;
-          border: none;
+          cursor: pointer;
+          &:focus{
+            outline: none;
+            img{
+              outline: 5px auto -webkit-focus-ring-color;
+            }
+          }
+        }
+        input{
+          display: none;
+        }
+        svg,img{
+          width: 35px;
+          height: 35px;
+          &:focus{
+            outline: none;
+          }
+          &.original{
+            display: none;
+          }
+        }
+        &.selected{
+          height: 35px;
+          width: 35px;
+          img{
+            &.black{
+              display: none;
+            }
+            &.original{
+              display: block;
+            }
+          }
         }
       }
     }

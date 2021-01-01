@@ -5,7 +5,9 @@ import { MainComponent } from './main/main.component';
 import { DocumentsComponent } from './documents/documents.component';
 import { AsideComponent } from './main/aside/aside.component';
 import { HeaderComponent } from './main/header/header.component';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
+
 
 
 
@@ -14,7 +16,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class AuthorizedModule { }

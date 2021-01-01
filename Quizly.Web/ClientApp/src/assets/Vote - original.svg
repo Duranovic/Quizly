@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="linear-gradient" x1="-0.181" y1="-0.161" x2="1.119" y2="1.234" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#192234"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_19" data-name="Rectangle 19" width="64" height="64" fill="url(#linear-gradient)"/>
+    </clipPath>
+  </defs>
+  <g id="Vote_-_original" data-name="Vote - original" clip-path="url(#clip-path)">
+    <g id="Rectangle_1" data-name="Rectangle 1" transform="translate(0 6.5)" stroke="#fff" stroke-width="1" fill="url(#linear-gradient)">
+      <rect width="57.5" height="57.5" rx="3" stroke="none"/>
+      <rect x="0.5" y="0.5" width="56.5" height="56.5" rx="2.5" fill="none"/>
+    </g>
+    <g id="Rectangle_2" data-name="Rectangle 2" transform="translate(33)" stroke="#fff" stroke-width="1" fill="url(#linear-gradient)">
+      <rect width="31" height="31" rx="3" stroke="none"/>
+      <rect x="0.5" y="0.5" width="30" height="30" rx="2.5" fill="none"/>
+    </g>
+    <text id="S" transform="translate(41 22.5)" fill="#fff" font-size="22" font-family="HelveticaNeue-Bold, Helvetica Neue" font-weight="700"><tspan x="0" y="0">V</tspan></text>
+    <rect id="Rectangle_3" data-name="Rectangle 3" width="7" height="7" transform="translate(8 21)" fill="url(#linear-gradient)"/>
+    <rect id="Rectangle_4" data-name="Rectangle 4" width="7" height="7" transform="translate(8 32)" fill="url(#linear-gradient)"/>
+    <rect id="Rectangle_5" data-name="Rectangle 5" width="7" height="7" transform="translate(8 43)" fill="url(#linear-gradient)"/>
+  </g>
+</svg>
