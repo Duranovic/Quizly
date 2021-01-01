@@ -43,5 +43,11 @@ namespace Quizly.API.Controllers
         {
             return _documentService.PinDocument(id);
         }
+
+        [HttpPut]
+        public Document Create([FromBody] Document document)
+        {
+            return _documentService.CreateDocument(document);
+        }
     }
 }

@@ -38,5 +38,10 @@ namespace Quizly.API.Services
             _documents.FindOneAndReplace(x => x.id == id, newDocument);
             return newDocument;
         }
+        public Document CreateDocument(Document document)
+        {
+            _documents.InsertOne(document);
+            return document;
+        }
     }
 }
