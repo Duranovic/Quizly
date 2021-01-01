@@ -31,7 +31,8 @@
           </thead>
           <tbody>
             <tr *ngFor="let item of recentDocuments" tabindex="0">
-              <td>{{item.title}}
+              <td>
+                <span>{{item.title}}</span>
                 <ul class="options">
                 <li>
                   <a href="#">
@@ -50,7 +51,8 @@
                     </svg>
                   </a>
                 </li>
-              </ul></td>
+              </ul>
+            </td>
               <td>{{item.dateTime}}</td>
               <td>{{item.pinned}}</td>
               <td>{{item._id}}</td>
@@ -67,7 +69,9 @@
           </thead>
           <tbody>
             <tr *ngFor="let item of documents" tabindex="0">
-              <td>{{item.title}}          <ul class="options">
+              <td>
+                <span>{{item.title}}</span>
+                <ul class="options">
                 <li>
                   <a href="#"><img src="/assets/feather-copy-black.svg" alt="icon"></a>
                 </li>
@@ -149,7 +153,9 @@
           </thead>
           <tbody>
             <tr *ngFor="let item of pinnedDocuments" tabindex="0">
-              <td>{{item.title}}          <ul class="options">
+              <td>
+                <span>{{item.title}}</span>
+                <ul class="options">
                 <li>
                   <a href="#"><img src="/assets/feather-copy-black.svg" alt="icon"></a>
                 </li>

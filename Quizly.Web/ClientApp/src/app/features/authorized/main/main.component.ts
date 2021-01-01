@@ -32,7 +32,6 @@ export class MainComponent implements OnInit {
   onSubmit(){
     if(this.documentForm.valid){
       this.documentService.createDocument(this.documentForm.controls.title.value, this.documentForm.controls.type.value).toPromise().then(createdDocument=>{
-        console.log(createdDocument);
       });
     }else{
       alert("FORM IS NOT VALID");

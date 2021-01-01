@@ -57,7 +57,8 @@
   }
 }
 .panels{
-  min-height: 50vh;
+  height: 80vh;
+  overflow: auto;
   table{
     width: 100%;
     tbody{
@@ -74,7 +75,10 @@
           font-size: 12px;
           &:first-child{
             width: 50%;
-            transition: padding .5s;
+            span{
+              display: inline-block;
+              transition: transform .5s;
+            }
           }
           &:nth-child(2){
             width: 20%;
@@ -89,7 +93,9 @@
           td{
             color: black;
             &:first-child{
-              padding-left: 16px;
+              span{
+                transform: translateX(16px);
+              }
             }
           }
           .options{
