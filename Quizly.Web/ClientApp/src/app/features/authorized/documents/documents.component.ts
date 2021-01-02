@@ -29,7 +29,7 @@ export class DocumentsComponent implements OnInit {
   setActivePanel(activePanel: string){
     this.activePanel = activePanel;
   }
-  pinDocument(id:Number){
+  pinDocument(id:String){
     this.spinner.show();
     this.documentService.pinDocument(id).toPromise().then((data:Document) => {
     this.fetchDocuments();

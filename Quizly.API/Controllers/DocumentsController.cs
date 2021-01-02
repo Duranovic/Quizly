@@ -39,7 +39,7 @@ namespace Quizly.API.Controllers
         }
 
         [HttpPatch("{id}")]
-        public Document PinDocument(int id)
+        public Document PinDocument(string id)
         {
             return _documentService.PinDocument(id);
         }

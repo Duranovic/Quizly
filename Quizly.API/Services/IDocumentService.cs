@@ -9,7 +9,7 @@ namespace Quizly.API.Services
         public IEnumerable<Document> Get();
         public IEnumerable<Document> GetRecent();
         public IEnumerable<Document> GetPinned();
-        public Document PinDocument(int id);
+        public Document PinDocument(string id);
         public Document CreateDocument(Document document);
     }
 }

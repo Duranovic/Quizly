@@ -43,7 +43,7 @@ namespace Quizly.API.Services
             return _documents.Where(x => x.pinned);
         }
 
-        Document IDocumentService.PinDocument(int id)
+        Document IDocumentService.PinDocument(string id)
         {
             throw new NotImplementedException();
         }

@@ -31,11 +31,11 @@ namespace Quizly.API.Services
         {
             return _documents.Find(document => true).Limit(5).ToList();
         }
-        public Document PinDocument(int id)
+        public Document PinDocument(string id)
         {
-            var newDocument = _documents.Find(document => document.id == id).FirstOrDefault();
+            var newDocument = _documents.Find(document => document._id == id).FirstOrDefault();
             newDocument.pinned = !newDocument.pinned;
-            _documents.FindOneAndReplace(x => x.id == id, newDocument);
+            _documents.FindOneAndReplace(x => x._id == id, newDocument);
             return newDocument;
         }
         public Document CreateDocument(Document document)

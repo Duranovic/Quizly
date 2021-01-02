@@ -19,7 +19,7 @@ export class DocumentsApiService {
     getPinnedDocuments (){
       return this.http.get("http://localhost:65189/api/documents/getPinned");
     }
-    pinDocument(id:Number){
+    pinDocument(id:String){
       return this.http.patch(`http://localhost:65189/api/documents/pinDocument/${id}`, true);
     }
     createDocument(titleAttr: String, typeAttr: String){
