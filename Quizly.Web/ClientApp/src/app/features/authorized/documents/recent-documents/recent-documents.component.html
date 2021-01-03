@@ -1,0 +1,42 @@
+<section class="recent-panel" [spinner]="spinner.isBusy" [overlay]="true">
+  <div class="custom-input-w-icon custom-input-search">
+    <input id="password" type="text" placeholder="Search for document">
+    <span class="focusIndicator"></span>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of recentDocuments" tabindex="0">
+        <td>
+          <span>{{item.title}}</span>
+          <ul class="options">
+          <li>
+            <a href="#">
+              <img src="/assets/feather-copy-black.svg" alt="icon">
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="/assets/open-share-boxed-black.svg" alt="icon">
+            </a>
+          </li>
+          <li class="document-pin" [ngClass]="{'pinned': item.pinned}">
+            <a (click)="pinDocument(item._id)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="9.391" height="13.836" viewBox="0 0 9.391 13.836">
+                <path id="Icon_metro-pin" data-name="Icon metro-pin" d="M16.813,14.082l-4.618-2.666a1.185,1.185,0,1,0-1.185,2.052l4.617,2.666a1.185,1.185,0,0,0,1.186-2.052ZM13,11.2,16.6,13.273l1.222-3.4-2.48-1.431L13,11.2Zm-2.648,8.733,3.436-4.174-1.539-.889-1.9,5.062ZM19.3,7.993,16.224,6.215a.889.889,0,0,0-.889,1.539l3.079,1.777A.889.889,0,1,0,19.3,7.993Z" transform="translate(-10.356 -6.096)"/>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </td>
+        <td>{{item.dateTime}}</td>
+        <td>{{item.pinned}}</td>
+        <td>{{item._id}}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>

@@ -14,37 +14,40 @@ export class DocumentsComponent implements OnInit {
   activePanel: string = 'recent';
   spinner: Spinner = new Spinner();
 
-  documents: Document[];
-  recentDocuments: Document[];
-  pinnedDocuments: Document[];
   constructor(documentService: DocumentsApiService) {
     this.documentService = documentService;
    }
 
   ngOnInit() {
-      this.spinner.show();
-      this.fetchDocuments();
-      this.spinner.hide();
+      //this.spinner.show();
+      //this.fetchDocuments();
+      //this.spinner.hide();
   }
   setActivePanel(activePanel: string){
     this.activePanel = activePanel;
   }
-  pinDocument(id:String){
-    this.spinner.show();
-    this.documentService.pinDocument(id).toPromise().then((data:Document) => {
-    this.fetchDocuments();
-    this.spinner.hide();
-    })
-  }
-  fetchDocuments(){
-    this.documentService.getDocuments().subscribe((data:Document []) =>{
-      this.documents = data;
-    })
-    this.documentService.getRecentDocuments().subscribe((data:Document []) => {
-      this.recentDocuments = data;
-    })
-    this.documentService.getPinnedDocuments().subscribe((data:Document []) => {
-      this.pinnedDocuments = data;
-    })
-  }
+  // pinDocument(id:String){
+  //   this.spinner.show();
+  //   this.documentService.pinDocument(id).toPromise().then((data:Document) => {
+  //     this.fetchDocuments();
+  //     this.spinner.hide();
+  //   })
+  // }
+  // fetchDocuments(){
+  //   this.documentService.getDocuments().subscribe({
+  //     next: (data)=>{
+  //       this.documents = data;
+  //     }
+  //   })
+  //   this.documentService.getRecentDocuments().subscribe({
+  //     next: (data)=>{
+  //       this.recentDocuments = data;
+  //     }
+  //   });
+  //   this.documentService.getPinnedDocuments().subscribe({
+  //     next: (data)=>{
+  //       this.pinnedDocuments = data;
+  //     }
+  //   })
+  //}
 }

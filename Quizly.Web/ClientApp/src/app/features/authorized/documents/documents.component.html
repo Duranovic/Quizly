@@ -1,182 +1,28 @@
 <div class="documents-container">
     <ul class="tabs">
         <li  [ngClass]="activePanel=='recent' ? 'active' : ''">
-            <button (click)="setActivePanel('recent')">
+            <button (click)="setActivePanel('recent')" [routerLink]="['recent-documents']">
               <span tabindex="-1">Recent</span>
             </button>
         </li>
         <li  [ngClass]="activePanel=='your-documents' ? 'active' : ''">
-          <button (click)="setActivePanel('your-documents')">
+          <button (click)="setActivePanel('your-documents')" [routerLink]="['all-documents']">
             <span tabindex="-1">Your documents</span>
           </button>
       </li>
         <li [ngClass]="activePanel=='shared' ? 'active' : ''">
-            <button (click)="setActivePanel('shared')">
+            <button (click)="setActivePanel('shared')" [routerLink]="['shared-documents']">
               <span tabindex="-1">Shared with me</span>
             </button>
         </li>
         <li [ngClass]="activePanel=='pinned' ? 'active' : ''">
-            <button (click)="setActivePanel('pinned')">
+            <button (click)="setActivePanel('pinned')" [routerLink]="['pinned-documents']">
               <span tabindex="-1">Pinned</span>
             </button>
         </li>
     </ul>
-    <div class="panels" [spinner]="spinner.isBusy" [overlay]="true">
-      <section class="recent-panel" *ngIf="activePanel=='recent'" >
-        <table>
-          <thead>
-            <tr>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of recentDocuments" tabindex="0">
-              <td>
-                <span>{{item.title}}</span>
-                <ul class="options">
-                <li>
-                  <a href="#">
-                    <img src="/assets/feather-copy-black.svg" alt="icon">
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <img src="/assets/open-share-boxed-black.svg" alt="icon">
-                  </a>
-                </li>
-                <li class="document-pin" [ngClass]="{'pinned': item.pinned}">
-                  <a (click)="pinDocument(item._id)">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="9.391" height="13.836" viewBox="0 0 9.391 13.836">
-                      <path id="Icon_metro-pin" data-name="Icon metro-pin" d="M16.813,14.082l-4.618-2.666a1.185,1.185,0,1,0-1.185,2.052l4.617,2.666a1.185,1.185,0,0,0,1.186-2.052ZM13,11.2,16.6,13.273l1.222-3.4-2.48-1.431L13,11.2Zm-2.648,8.733,3.436-4.174-1.539-.889-1.9,5.062ZM19.3,7.993,16.224,6.215a.889.889,0,0,0-.889,1.539l3.079,1.777A.889.889,0,1,0,19.3,7.993Z" transform="translate(-10.356 -6.096)"/>
-                    </svg>
-                  </a>
-                </li>
-              </ul>
-            </td>
-              <td>{{item.dateTime}}</td>
-              <td>{{item.pinned}}</td>
-              <td>{{item._id}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-      <section class="recent-panel" *ngIf="activePanel=='your-documents'">
-        <table>
-          <thead>
-            <tr>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of documents" tabindex="0">
-              <td>
-                <span>{{item.title}}</span>
-                <ul class="options">
-                <li>
-                  <a href="#"><img src="/assets/feather-copy-black.svg" alt="icon"></a>
-                </li>
-                <li>
-                  <a href="#"><img src="/assets/open-share-boxed-black.svg" alt="icon"></a>
-                </li>
-                <li class="document-pin" [ngClass]="{'pinned': item.pinned}">
-                  <a (click)="pinDocument(item._id)">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="9.391" height="13.836" viewBox="0 0 9.391 13.836">
-                      <path id="Icon_metro-pin" data-name="Icon metro-pin" d="M16.813,14.082l-4.618-2.666a1.185,1.185,0,1,0-1.185,2.052l4.617,2.666a1.185,1.185,0,0,0,1.186-2.052ZM13,11.2,16.6,13.273l1.222-3.4-2.48-1.431L13,11.2Zm-2.648,8.733,3.436-4.174-1.539-.889-1.9,5.062ZM19.3,7.993,16.224,6.215a.889.889,0,0,0-.889,1.539l3.079,1.777A.889.889,0,1,0,19.3,7.993Z" transform="translate(-10.356 -6.096)"/>
-                    </svg>
-                  </a>
-                </li>
-              </ul></td>
-              <td>{{item.dateTime}}</td>
-              <td>{{item.pinned}}</td>
-              <td>{{item._id}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-      <section class="shared-panel" *ngIf="activePanel=='shared'" >
-        <table>
-          <thead>
-            <tr>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Book 4</td>
-              <td>3 Sept</td>
-              <td>velid.duranovic@edu.fit.ba</td>
-            </tr>
-            <tr>
-              <td>Working timesheet - Velid (the …</td>
-              <td>1 May</td>
-              <td>Shared</td>
-            </tr>
-            <tr>
-              <td>Valtech</td>
-              <td>1 May</td>
-              <td>salvedin@valtech.com</td>
-            </tr>
-            <tr>
-              <td>Velid @ Infinity Mesh doo</td>
-              <td>17 Sept 2019</td>
-              <td>admir@infinitymesh.com</td>
-            </tr>
-            <tr>
-              <td>Book 4</td>
-              <td>3 Sept</td>
-              <td>velidprivate@gmail.com</td>
-            </tr>
-            <tr>
-              <td>Working timesheet - Velid (the …</td>
-              <td>1 May</td>
-              <td>admir@infinitymesh.com</td>
-            </tr>
-            <tr>
-              <td>Valtech</td>
-              <td>1 May</td>
-              <td>velid.duranovic@edu.fit.ba</td>
-            </tr>
-            <tr>
-              <td>Velid @ Infinity Mesh doo</td>
-              <td>17 Sept 2019</td>
-              <td>admirmujkic@infinitymesh.com</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-      <section class="pinned" *ngIf="activePanel=='pinned'" >
-        <table>
-          <thead>
-            <tr>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of pinnedDocuments" tabindex="0">
-              <td>
-                <span>{{item.title}}</span>
-                <ul class="options">
-                <li>
-                  <a href="#"><img src="/assets/feather-copy-black.svg" alt="icon"></a>
-                </li>
-                <li>
-                  <a href="#"><img src="/assets/open-share-boxed-black.svg" alt="icon"></a>
-                </li>
-                <li class="document-pin" [ngClass]="{'pinned': item.pinned}">
-                  <a (click)="pinDocument(item._id)">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="9.391" height="13.836" viewBox="0 0 9.391 13.836">
-                      <path id="Icon_metro-pin" data-name="Icon metro-pin" d="M16.813,14.082l-4.618-2.666a1.185,1.185,0,1,0-1.185,2.052l4.617,2.666a1.185,1.185,0,0,0,1.186-2.052ZM13,11.2,16.6,13.273l1.222-3.4-2.48-1.431L13,11.2Zm-2.648,8.733,3.436-4.174-1.539-.889-1.9,5.062ZM19.3,7.993,16.224,6.215a.889.889,0,0,0-.889,1.539l3.079,1.777A.889.889,0,1,0,19.3,7.993Z" transform="translate(-10.356 -6.096)"/>
-                    </svg>
-                  </a>
-                </li>
-              </ul></td>
-              <td>{{item.dateTime}}</td>
-              <td>{{item.pinned}}</td>
-              <td>{{item._id}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
+    <div class="panels">
+      <router-outlet></router-outlet>
     </div>
 </div>
 

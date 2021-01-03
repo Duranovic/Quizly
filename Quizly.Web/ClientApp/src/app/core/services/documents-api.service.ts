@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import {Document} from 'src/app/shared/models/document';
 
 
@@ -7,17 +9,26 @@ import {Document} from 'src/app/shared/models/document';
   providedIn: 'root'
 })
 export class DocumentsApiService {
+  documents: Document[];
+  recentDocuments: Document[];
+  pinnedDocuments: Document[];
   constructor(readonly http: HttpClient) {
 
    }
     getDocuments (){
-      return this.http.get("http://localhost:65189/api/documents/get");
+      return this.http.get("http://localhost:65189/api/documents/get").pipe(
+        tap((data:Document[])=>{this.documents = data})
+      );
     }
     getRecentDocuments (){
-      return this.http.get("http://localhost:65189/api/documents/getRecent");
+      return this.http.get("http://localhost:65189/api/documents/getRecent").pipe(
+        tap((data:Document[])=>{this.recentDocuments = data})
+      );
     }
     getPinnedDocuments (){
-      return this.http.get("http://localhost:65189/api/documents/getPinned");
+      return this.http.get("http://localhost:65189/api/documents/getPinned").pipe(
+        tap((data:Document[])=>{this.pinnedDocuments = data})
+      );
     }
     pinDocument(id:String){
       return this.http.patch(`http://localhost:65189/api/documents/pinDocument/${id}`, true);
@@ -30,6 +41,9 @@ export class DocumentsApiService {
         pinned : false,
         type: typeAttr
       };
-      return this.http.put("http://localhost:65189/api/documents/create", newDocument);
+      let document;
+      return this.http.put("http://localhost:65189/api/documents/create", newDocument).pipe(
+        tap(data=>{document = data; console.log("DATA: " + data)})
+      );
     }
 }

@@ -14,6 +14,10 @@ import { FeaturesModule } from './features/features.module';
 import { MainComponent } from './features/authorized/main/main.component';
 import { DocumentsComponent } from './features/authorized/documents/documents.component';
 import { NotFoundComponent } from './features/error-pages/not-found/not-found.component';
+import { RecentDocumentsComponent } from './features/authorized/documents/recent-documents/recent-documents.component';
+import { SharedDocumentsComponent } from './features/authorized/documents/shared-documents/shared-documents.component';
+import { PinnedDocumentsComponent } from './features/authorized/documents/pinned-documents/pinned-documents.component';
+import { AllDocumentsComponent } from './features/authorized/documents/all-documents/all-documents.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +40,14 @@ import { NotFoundComponent } from './features/error-pages/not-found/not-found.co
       { path: 'dashboard', component: MainComponent ,
           children: [
             {path: '', redirectTo: 'documents', pathMatch: 'full'},
-            {path: 'documents', component: DocumentsComponent},
+            {path: 'documents', component: DocumentsComponent,
+              children:[
+                {path: '', redirectTo: 'recent-documents', pathMatch: 'full' },
+                {path: 'recent-documents', component: RecentDocumentsComponent},
+                {path: 'shared-documents', component: SharedDocumentsComponent},
+                {path: 'pinned-documents', component: PinnedDocumentsComponent},
+                {path: 'all-documents', component: AllDocumentsComponent}
+              ]},
             {path: 'specs', component: DocumentsComponent},
           ]
       },
