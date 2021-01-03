@@ -1,12 +1,16 @@
 <section class="pinned" [spinner]="spinner.isBusy" [overlay]="true">
-  <table *ngIf="pinnedDocuments.length > 0">
+  <div class="custom-input-w-icon custom-input-search">
+    <input id="password" type="text" placeholder="Search for document" [value]="searchKey" (input)="filterDocuments($event)">
+    <span class="focusIndicator"></span>
+  </div>
+  <table *ngIf="filteredPinnedDocuments.length > 0">
     <thead>
       <tr>
         <th></th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of pinnedDocuments" tabindex="0">
+      <tr *ngFor="let item of filteredPinnedDocuments" tabindex="0">
         <td>
           <span>{{item.title}}</span>
           <ul class="options">
@@ -30,5 +34,5 @@
       </tr>
     </tbody>
   </table>
-  <h2 class="no-documents-message" *ngIf="pinnedDocuments.length <= 0">There is no pinned documents</h2>
+  <h2 class="no-documents-message" *ngIf="filteredPinnedDocuments.length <= 0">There is no pinned documents</h2>
 </section>

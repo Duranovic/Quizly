@@ -30,10 +30,10 @@ export class DocumentsApiService {
         tap((data:Document[])=>{this.pinnedDocuments = data})
       );
     }
-    pinDocument(id:String){
+    pinDocument(id:string){
       return this.http.patch(`http://localhost:65189/api/documents/pinDocument/${id}`, true);
     }
-    createDocument(titleAttr: String, typeAttr: String){
+    createDocument(titleAttr: string, typeAttr: string){
       let newDocument: Document = {
         title: titleAttr,
         id: 2,

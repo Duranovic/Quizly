@@ -9,9 +9,11 @@ import { Spinner } from 'src/app/shared/models/spinner';
   styleUrls: ['./recent-documents.component.scss']
 })
 export class RecentDocumentsComponent implements OnInit {
-  recentDocuments: Document[];
+  recentDocuments: Document[] = [];
+  filteredRecentDocuments: Document[] = [];
   documentService: DocumentsApiService;
   spinner: Spinner = new Spinner();
+  searchKey: string = "";
   constructor(documentService: DocumentsApiService) {
     this.documentService = documentService;
    }
@@ -21,13 +23,21 @@ export class RecentDocumentsComponent implements OnInit {
     this.documentService.getRecentDocuments().subscribe({
       next: (data:any)=>{
         this.recentDocuments = data;
+        this.filteredRecentDocuments = this.recentDocuments;
         this.spinner.hide();
       }
     })
   }
-  pinDocument(id:String){
+  pinDocument(id:string){
     let document = this.recentDocuments.find(x=>x._id == id);
     document.pinned = !document.pinned;
     this.documentService.pinDocument(id).subscribe();
+  }
+  filterDocument($event){
+    this.searchKey = $event.target.value;
+    if(this.searchKey != "")
+      this.filteredRecentDocuments = this.recentDocuments.filter(x=>{return x.title.toLowerCase().indexOf(this.searchKey.toLowerCase()) >= 0});
+    else
+      this.filteredRecentDocuments = this.recentDocuments;
   }
 }

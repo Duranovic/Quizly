@@ -1,8 +1,8 @@
 export class Document{
-  _id?:String;
-  id?: Number;
-  title: String;
-  type: String;
-  pinned?: Boolean;
+  _id?:string;
+  id?: number;
+  title: string;
+  type: string;
+  pinned?: boolean;
   dateTime: Date
 }

@@ -314,10 +314,14 @@ a{
           li{
             display: inline-block;
             margin-right: 8px;
-            padding: 4px 10px;
-            border-radius: 20px;
             &:hover{
-              background-color: rgb(194, 194, 194)
+              a{
+                background-color: rgb(194, 194, 194)
+              }
+            }
+            a{
+              padding: 4px 10px;
+              border-radius: 100%;
             }
             svg{
               transition: transform .2s ease-out, fill .3s;
@@ -334,9 +338,10 @@ a{
     }
   }
   .no-documents-message{
-    padding-top: 120px;
-    color: $gray;
+    padding-top: 100px;
+    color: transparentize($color: $gray, $amount: 0.4);
     text-align: center;
+    font-size: 24px;
   }
 }
 

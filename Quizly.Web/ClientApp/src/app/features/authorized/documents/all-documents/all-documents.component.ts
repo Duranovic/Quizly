@@ -11,8 +11,10 @@ import { Spinner } from 'src/app/shared/models/spinner';
 })
 export class AllDocumentsComponent implements OnInit {
   documentService: DocumentsApiService;
-  documents: Document[];
+  documents: Document[] = [];
+  filteredDocuments: Document[] = [];
   spinner: Spinner = new Spinner();
+  searchKey: string = "";
 
   constructor(documentService: DocumentsApiService,private _documentService:DocumentsService) {
     this.documentService = documentService;
@@ -23,13 +25,21 @@ export class AllDocumentsComponent implements OnInit {
     this.documentService.getDocuments().subscribe({
       next: (data:any)=>{
         this.documents = data;
+        this.filteredDocuments = this.documents;
         this.spinner.hide();
       }
     })
   }
   pinDocument(id){
-    this.documents = this._documentService.pinDocument(id, this.documents);
+    this.filteredDocuments = this._documentService.pinDocument(id, this.filteredDocuments);
     this.documentService.pinDocument(id).subscribe();
   }
-
+  filterDocuments($event){
+    this.searchKey = $event.target.value;
+    if(this.searchKey != ""){
+      this.filteredDocuments = this.documents.filter(x=>{return x.title.toLowerCase().indexOf(this.searchKey.toLowerCase()) >= 0});
+    }
+    else
+      this.filteredDocuments = this.documents;
+  }
 }

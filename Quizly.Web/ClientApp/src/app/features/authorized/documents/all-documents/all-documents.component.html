@@ -1,12 +1,16 @@
 <section class="your-documents-panel" [spinner]="spinner.isBusy" [overlay]="true">
-  <table *ngIf="documents.length > 0">
+  <div class="custom-input-w-icon custom-input-search">
+    <input id="password" type="text" placeholder="Search for document" [value]="searchKey" (input)="filterDocuments($event)">
+    <span class="focusIndicator"></span>
+  </div>
+  <table *ngIf="filteredDocuments.length > 0">
     <thead>
       <tr>
         <th></th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of documents" tabindex="0">
+      <tr *ngFor="let item of filteredDocuments" tabindex="0">
         <td>
           <span>{{item.title}}</span>
           <ul class="options">
@@ -31,6 +35,6 @@
       </tr>
     </tbody>
   </table>
-  <h2 class="no-documents-message" *ngIf="documents.length <= 0">There is documents</h2>
+  <h2 class="no-documents-message" *ngIf="filteredDocuments.length <= 0">There is documents</h2>
 </section>
 
