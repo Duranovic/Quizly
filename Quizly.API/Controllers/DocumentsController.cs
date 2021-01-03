@@ -49,5 +49,11 @@ namespace Quizly.API.Controllers
         {
             return _documentService.CreateDocument(document);
         }
+
+        [HttpDelete]
+        public Document Delete(string id)
+        {
+            return _documentService.Delete(id);
+        }
     }
 }

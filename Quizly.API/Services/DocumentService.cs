@@ -52,5 +52,10 @@ namespace Quizly.API.Services
         {
             throw new NotImplementedException();
         }
+
+        Document IDocumentService.Delete(string id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
