@@ -1,5 +1,5 @@
 <section class="pinned" [spinner]="spinner.isBusy" [overlay]="true">
-  <div class="custom-input-w-icon custom-input-search">
+  <div class="custom-input-w-icon custom-input-search" *ngIf="pinnedDocuments.length > 0">
     <input id="password" type="text" placeholder="Search for document" [value]="searchKey" (input)="filterDocuments($event)">
     <span class="focusIndicator"></span>
   </div>

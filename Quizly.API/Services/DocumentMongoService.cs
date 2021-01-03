@@ -31,6 +31,12 @@ namespace Quizly.API.Services
         {
             return _documents.Find(document => true).Limit(5).ToList();
         }
+
+        public Document Delete(string id)
+        {            
+            return _documents.FindOneAndDelete(x => x._id == id);
+        }
+
         public Document PinDocument(string id)
         {
             var newDocument = _documents.Find(document => document._id == id).FirstOrDefault();
