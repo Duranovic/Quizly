@@ -1,5 +1,5 @@
 <section class="your-documents-panel" [spinner]="spinner.isBusy" [overlay]="true">
-  <table>
+  <table *ngIf="documents.length > 0">
     <thead>
       <tr>
         <th></th>
@@ -31,5 +31,6 @@
       </tr>
     </tbody>
   </table>
+  <h2 class="no-documents-message" *ngIf="documents.length <= 0">There is documents</h2>
 </section>
 

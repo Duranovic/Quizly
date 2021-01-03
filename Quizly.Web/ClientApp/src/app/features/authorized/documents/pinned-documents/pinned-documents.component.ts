@@ -29,7 +29,7 @@ export class PinnedDocumentsComponent implements OnInit {
     })
   }
   pinDocument(id){
-    this.pinnedDocuments = this._documentService.pinDocument(id, this.pinnedDocuments);
+    this.pinnedDocuments = this.pinnedDocuments.filter(x=>x._id != id);
     this.documentService.pinDocument(id).subscribe();
   }
 

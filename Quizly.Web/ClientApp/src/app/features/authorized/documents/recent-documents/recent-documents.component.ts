@@ -26,10 +26,8 @@ export class RecentDocumentsComponent implements OnInit {
     })
   }
   pinDocument(id:String){
-    this.spinner.show();
-    this.documentService.pinDocument(id).toPromise().then((data:Document) => {
-      this.recentDocuments.find(x=>x._id == data._id).pinned = data.pinned;
-      this.spinner.hide();
-    })
+    let document = this.recentDocuments.find(x=>x._id == id);
+    document.pinned = !document.pinned;
+    this.documentService.pinDocument(id).subscribe();
   }
 }

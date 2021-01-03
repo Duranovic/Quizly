@@ -3,7 +3,7 @@
     <input id="password" type="text" placeholder="Search for document">
     <span class="focusIndicator"></span>
   </div>
-  <table>
+  <table *ngIf="recentDocuments.length > 0">
     <thead>
       <tr>
         <th></th>
@@ -39,4 +39,5 @@
       </tr>
     </tbody>
   </table>
+  <h2 class="no-documents-message" *ngIf="recentDocuments.length <= 0">There is no recent documents</h2>
 </section>
