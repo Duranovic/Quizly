@@ -7,6 +7,7 @@ namespace Quizly.API.Services
     public interface IDocumentService
     {
         public IEnumerable<Document> Get();
+        public Document GetDocumentById(string id);
         public IEnumerable<Document> GetRecent();
         public IEnumerable<Document> GetPinned();
         public Document PinDocument(string id);

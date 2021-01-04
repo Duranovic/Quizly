@@ -27,6 +27,12 @@ namespace Quizly.API.Controllers
         }
 
         [HttpGet]
+        public Document GetDocumentById(string id)
+        {
+            return _documentService.GetDocumentById(id);
+        }
+
+        [HttpGet]
         public IEnumerable<Document> GetPinned()
         {
             return _documentService.GetPinned();

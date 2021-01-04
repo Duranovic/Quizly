@@ -22,6 +22,11 @@ namespace Quizly.API.Services
             return documents;
         }
 
+        public Document GetDocumentById(string id)
+        {
+            return _documents.Find(x => x._id == id).FirstOrDefault();
+        }
+
         public IEnumerable<Document> GetPinned()
         {
             return _documents.Find(document => document.pinned).ToList();
