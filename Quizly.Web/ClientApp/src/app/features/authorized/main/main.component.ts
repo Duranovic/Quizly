@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { DocumentsApiService } from 'src/app/core/services/documents-api.service';
 import {Document} from 'src/app/shared/models/document';
 
@@ -16,7 +17,7 @@ export class MainComponent implements OnInit {
       type: ['', Validators.required]
     }
   )
-  constructor(private formBuilder: FormBuilder, private documentService:DocumentsApiService) {
+  constructor(private formBuilder: FormBuilder, private documentService:DocumentsApiService, private router: Router) {
 
   }
 
@@ -31,7 +32,8 @@ export class MainComponent implements OnInit {
   }
   onSubmit(){
     if(this.documentForm.valid){
-      this.documentService.createDocument(this.documentForm.controls.title.value, this.documentForm.controls.type.value).toPromise().then(createdDocument=>{
+      this.documentService.createDocument(this.documentForm.controls.title.value, this.documentForm.controls.type.value).toPromise().then((createdDocument:Document)=>{
+        this.router.navigate(['/dashboard/documentDetails', { id: createdDocument._id}])
       });
     }else{
       alert("FORM IS NOT VALID");

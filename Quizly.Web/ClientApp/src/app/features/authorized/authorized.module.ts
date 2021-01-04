@@ -11,12 +11,13 @@ import { AllDocumentsComponent } from './documents/all-documents/all-documents.c
 import { RecentDocumentsComponent } from './documents/recent-documents/recent-documents.component';
 import { PinnedDocumentsComponent } from './documents/pinned-documents/pinned-documents.component';
 import { SharedDocumentsComponent } from './documents/shared-documents/shared-documents.component';
+import { DocumentDetailsComponent } from './document-details/document-details.component';
 
 
 
 
 @NgModule({
-  declarations: [MainComponent, DocumentsComponent, AsideComponent, HeaderComponent, AllDocumentsComponent, RecentDocumentsComponent, PinnedDocumentsComponent, SharedDocumentsComponent],
+  declarations: [MainComponent, DocumentsComponent, AsideComponent, HeaderComponent, AllDocumentsComponent, RecentDocumentsComponent, PinnedDocumentsComponent, SharedDocumentsComponent, DocumentDetailsComponent],
   imports: [
     CommonModule,
     RouterModule,

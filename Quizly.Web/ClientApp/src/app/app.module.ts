@@ -18,6 +18,7 @@ import { RecentDocumentsComponent } from './features/authorized/documents/recent
 import { SharedDocumentsComponent } from './features/authorized/documents/shared-documents/shared-documents.component';
 import { PinnedDocumentsComponent } from './features/authorized/documents/pinned-documents/pinned-documents.component';
 import { AllDocumentsComponent } from './features/authorized/documents/all-documents/all-documents.component';
+import { DocumentDetailsComponent } from './features/authorized/document-details/document-details.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { AllDocumentsComponent } from './features/authorized/documents/all-docum
       { path: 'dashboard', component: MainComponent ,
           children: [
             {path: '', redirectTo: 'documents', pathMatch: 'full'},
-            {path: 'documents', component: DocumentsComponent,
+            {
+              path: 'documents', component: DocumentsComponent,
               children:[
                 {path: '', redirectTo: 'recent-documents', pathMatch: 'full' },
                 {path: 'recent-documents', component: RecentDocumentsComponent},
@@ -49,6 +51,7 @@ import { AllDocumentsComponent } from './features/authorized/documents/all-docum
                 {path: 'all-documents', component: AllDocumentsComponent}
               ]},
             {path: 'specs', component: DocumentsComponent},
+            {path: 'document/:id', component: DocumentDetailsComponent}
           ]
       },
       {path: "**", redirectTo: 'not-found', pathMatch: "full"}

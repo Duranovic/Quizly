@@ -15,6 +15,9 @@ export class DocumentsApiService {
   constructor(readonly http: HttpClient) {
 
    }
+   getDocumentById(id:string){
+    return this.http.get(`http://localhost:65189/api/documents/GetDocumentById?id=${id}`);
+   }
     getDocuments (){
       return this.http.get("http://localhost:65189/api/documents/get").pipe(
         tap((data:Document[])=>{this.documents = data})
