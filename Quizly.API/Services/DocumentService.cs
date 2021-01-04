@@ -57,5 +57,10 @@ namespace Quizly.API.Services
         {
             throw new NotImplementedException();
         }
+
+        Document IDocumentService.GetDocumentById(string id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
