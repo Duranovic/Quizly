@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DocumentsApiService } from 'src/app/core/services/documents-api.service';
 import { DocumentsService } from 'src/app/core/services/documents.service';
 import {Document} from 'src/app/shared/models/document';
@@ -18,7 +19,7 @@ export class PinnedDocumentsComponent implements OnInit {
   spinner: Spinner = new Spinner();
   searchKey: string = "";
 
-  constructor(documentService: DocumentsApiService, private _documentService: DocumentsService) {
+  constructor(documentService: DocumentsApiService, private _documentService: DocumentsService, private router: Router) {
     this.documentService = documentService;
    }
 
@@ -32,10 +33,11 @@ export class PinnedDocumentsComponent implements OnInit {
       }
     })
   }
-  pinDocument(id){
+  pinDocument($event, id){
     this.filteredPinnedDocuments = this.filteredPinnedDocuments.filter(x=>x._id != id);
     this.pinnedDocuments = this.pinnedDocuments.filter(x=>x._id != id);
     this.documentService.pinDocument(id).subscribe();
+    $event.stopPropagation();
   }
 
   filterDocuments($event){
@@ -47,4 +49,7 @@ export class PinnedDocumentsComponent implements OnInit {
       this.filteredPinnedDocuments = this.pinnedDocuments;
   }
 
+  openDocumentDetails(id:string){
+    this.router.navigate(['/dashboard/document', id]);
+  }
 }
