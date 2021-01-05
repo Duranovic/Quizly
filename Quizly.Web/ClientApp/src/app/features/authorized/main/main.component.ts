@@ -33,7 +33,8 @@ export class MainComponent implements OnInit {
   onSubmit(){
     if(this.documentForm.valid){
       this.documentService.createDocument(this.documentForm.controls.title.value, this.documentForm.controls.type.value).toPromise().then((createdDocument:Document)=>{
-        this.router.navigate(['/dashboard/documentDetails', { id: createdDocument._id}])
+        this.router.navigate(['/dashboard/document', createdDocument._id]);
+        this.isVisibleCreateDocumentModal = false;
       });
     }else{
       alert("FORM IS NOT VALID");
