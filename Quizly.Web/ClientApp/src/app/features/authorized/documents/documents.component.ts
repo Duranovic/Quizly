@@ -10,44 +10,14 @@ import {Spinner} from 'src/app/shared/models/spinner';
   styleUrls: ['./documents.component.scss']
 })
 export class DocumentsComponent implements OnInit {
-  documentService: DocumentsApiService;
   activePanel: string = 'recent';
-  spinner: Spinner = new Spinner();
 
-  constructor(documentService: DocumentsApiService) {
-    this.documentService = documentService;
+  constructor() {
    }
 
   ngOnInit() {
-      //this.spinner.show();
-      //this.fetchDocuments();
-      //this.spinner.hide();
   }
   setActivePanel(activePanel: string){
     this.activePanel = activePanel;
   }
-  // pinDocument(id:String){
-  //   this.spinner.show();
-  //   this.documentService.pinDocument(id).toPromise().then((data:Document) => {
-  //     this.fetchDocuments();
-  //     this.spinner.hide();
-  //   })
-  // }
-  // fetchDocuments(){
-  //   this.documentService.getDocuments().subscribe({
-  //     next: (data)=>{
-  //       this.documents = data;
-  //     }
-  //   })
-  //   this.documentService.getRecentDocuments().subscribe({
-  //     next: (data)=>{
-  //       this.recentDocuments = data;
-  //     }
-  //   });
-  //   this.documentService.getPinnedDocuments().subscribe({
-  //     next: (data)=>{
-  //       this.pinnedDocuments = data;
-  //     }
-  //   })
-  //}
 }
