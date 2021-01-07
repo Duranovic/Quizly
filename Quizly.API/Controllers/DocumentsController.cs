@@ -61,5 +61,11 @@ namespace Quizly.API.Controllers
         {
             return _documentService.Delete(id);
         }
+
+        [HttpDelete]
+        public IEnumerable<Document> DeleteMany(string[] ids)
+        {
+            return _documentService.DeleteMany(ids);
+        }
     }
 }

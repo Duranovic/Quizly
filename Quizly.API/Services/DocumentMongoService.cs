@@ -54,5 +54,15 @@ namespace Quizly.API.Services
             _documents.InsertOne(document);
             return document;
         }
+
+        public IEnumerable<Document> DeleteMany(string[] ids)
+        {
+            List<Document> deletedDocuments = new List<Document>();
+            foreach(string documentId in ids)
+            {
+                deletedDocuments.Add(_documents.FindOneAndDelete(x => x._id == documentId));
+            }
+            return deletedDocuments;
+        }
     }
 }

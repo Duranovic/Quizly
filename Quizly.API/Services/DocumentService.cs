@@ -62,5 +62,10 @@ namespace Quizly.API.Services
         {
             throw new NotImplementedException();
         }
+
+        IEnumerable<Document> IDocumentService.DeleteMany(string[] ids)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
