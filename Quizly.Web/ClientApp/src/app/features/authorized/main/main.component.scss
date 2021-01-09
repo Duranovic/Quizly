@@ -13,6 +13,9 @@
     padding: 0 50px;
     width: 100%;
     overflow: hidden;
+    @include media-xs{
+      padding: 3.875rem 1.5rem;
+    }
     .main-content{
       overflow: auto;
       height: 100%;
@@ -107,6 +110,10 @@
         top: 100px;
         background: none;
         border: none;
+        @include media-xs{
+          right: 32px;
+          top: 24px;
+        }
       }
       .form-container{
         width: 573px;
@@ -114,6 +121,10 @@
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
+        @include media-xs{
+          width: auto;
+          top: 40%;
+        }
         label, p{
           color: $text-color;
           display: block;

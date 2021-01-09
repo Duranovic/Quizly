@@ -10,8 +10,23 @@ label{
   position: absolute;
   opacity: 0;
 }
+button{
+  border: none;
+  background: none;
+}
 ul{
   list-style: none;
+}
+.hidden-mobile{
+  @include media-xs{
+    display: none !important;
+  }
+}
+.hidden-desktop{
+  display: none;
+  @include media-xs{
+    display: block;
+  }
 }
 .custom-input-w-icon{
   position: relative;
@@ -84,6 +99,9 @@ ul{
   &.custom-input-search{
     margin: 10px 0;
     width: 30%;
+    @include media-xs{
+      width: 100%;
+    }
     input{
       padding-left: 30px;
     }
@@ -256,6 +274,9 @@ a{
   overflow: auto;
   .custom-input-w-icon{
     display: inline-block;
+    @include media-xs{
+      margin-bottom: 1rem;
+    }
     input{
       font-size: 14px;
     }
@@ -264,7 +285,7 @@ a{
     width: 100%;
     tbody{
       tr{
-        border-bottom: 1px solid $gray;
+        border-bottom: 1px solid transparentize($color: #868686, $amount: 0.56);
         color: $gray;
         transition: background-color .3s, color .3s;
         &:last-child{
