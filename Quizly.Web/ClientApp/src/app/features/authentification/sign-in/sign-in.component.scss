@@ -1,16 +1,16 @@
 @import '../../../../variables';
 .sign-up-container{
-  padding: 66px 127px;
+  padding: 4.125rem 7.9375rem;
   @include media-xs{
-    padding: 66px 26px;
+    padding: 4.125rem 1.625rem;
   }
   h1{
     color: white;
-    font-size: 48px;
+    font-size: 3rem;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     @include media-xs{
-      font-size: 36px;
+      font-size: 2.25rem;
     }
   }
   .content{
@@ -20,29 +20,29 @@
       flex-direction: column;
     }
     h2{
-      font-size: 48px;
+      font-size: 3rem;
       color: white;
       font-family: Arial, Helvetica, sans-serif;
       font-weight: bold;
       margin-right: 40%;
     }
     .form-container{
-      padding-top: 44px;
+      padding-top: 2.75rem;
       width: 90%;
-      padding-left: calc(360px - 127px);
-      padding-right: 112px;
+      padding-left: calc(22.5rem - 7.9375rem);
+      padding-right: 7rem;
       @include media-xs{
-        padding: 44px 0;
+        padding: 2.75rem 0;
         order: 2;
         width: 100%;
       }
       .form-footer{
         p{
           color: $gray;
-          font-size: 16px;
+          font-size: 1rem;
           margin-bottom: 12px;
           @include media-xs{
-            font-size: 12px;
+            font-size: 0.75rem;
             margin-bottom: 8px;
           }
           a{
@@ -70,7 +70,7 @@
       p{
         display: none;
         @include media-xs{
-          font-size: 14px;
+          font-size: 0.875rem;
           color: $gray;
           display: block;
           order: 2;
@@ -78,8 +78,8 @@
         }
       }
       .authentification-methods{
-        padding: 40px 0;
-        border-left: 1px solid #707070;
+        padding: 2.5rem 0;
+        border-left: 1px solid $gray;
         @include media-xs{
           padding: 0;
         }
@@ -89,7 +89,7 @@
         ul{
           @include media-xs{
             display: flex;
-            padding: 16px 0;
+            padding: 1rem 0;
           }
           li{
             transition: opacity .3s;
@@ -107,7 +107,7 @@
             }
             img{
               @include media-xs{
-                max-width: 43px;
+                max-width: 2.687rem;
               }
             }
           }
