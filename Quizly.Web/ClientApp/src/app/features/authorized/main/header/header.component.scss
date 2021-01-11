@@ -7,7 +7,7 @@ header{
   &.header-desktop{
     padding-top: 29px;
     @include media-xs{
-      display: none;
+      padding: 0;
     }
     .user-profile-icon{
       border: none;
@@ -16,11 +16,20 @@ header{
       display: flex;
       align-items: center;
       justify-content: flex-end;
+      @include media-xs{
+        padding: 0;
+        margin-bottom: 2rem;
+      }
       >li{
         text-align: right;
         &:first-child{
           flex-grow: 1;
           text-align: center;
+        }
+        &:nth-child(2){
+          @include media-xs{
+            display: none;
+          }
         }
         >img{
           transform: translateY(-10px);
