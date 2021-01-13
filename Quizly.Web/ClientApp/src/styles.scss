@@ -261,6 +261,59 @@ a{
       $i: $i + 2;
   }
 }
+.secondary-button{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  border: 1px solid $gray;
+  padding: 0.875em 1.25em;
+  overflow: hidden;
+  z-index: 1;
+  font-size: 1rem;
+  text-transform: none;
+  @include media-xs{
+    padding: 0.75em 1.25em 0.75em 0.875em;
+  }
+  svg{
+    width: 1.25rem;
+    height: auto;
+    margin-right: 8px;
+    fill: $light-gray;
+    transition: fill .3s;
+  }
+  span{
+    color: $light-gray;
+    transition: color .3s;
+    @include media-xs{
+      font-size: 1rem;
+    }
+  }
+  &::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    background-color: white;
+    transition: width .5s ease-in-out;
+    z-index: -1;
+  }
+  &:hover{
+    text-decoration: none;
+    &::after{
+      width: 100%;
+    }
+    span{
+      color: $gray;
+    }
+    svg{
+      fill: $bg-color;
+    }
+  }
+
+}
 
 @keyframes cssload-spin {
   100% {

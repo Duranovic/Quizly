@@ -19,6 +19,7 @@ import { SharedDocumentsComponent } from './features/authorized/documents/shared
 import { PinnedDocumentsComponent } from './features/authorized/documents/pinned-documents/pinned-documents.component';
 import { AllDocumentsComponent } from './features/authorized/documents/all-documents/all-documents.component';
 import { DocumentDetailsComponent } from './features/authorized/document-details/document-details.component';
+import { InternalErrorComponent } from './features/error-pages/internal-error/internal-error.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { DocumentDetailsComponent } from './features/authorized/document-details
       { path: 'forgot-password', component: ForgotPasswordComponent },
       { path: 'enter-password', component: EnterPasswordComponent },
       {path: 'not-found', component: NotFoundComponent},
+      {path: 'internal-error', component: InternalErrorComponent},
       { path: 'dashboard', component: MainComponent ,
           children: [
             {path: '', redirectTo: 'documents', pathMatch: 'full'},
