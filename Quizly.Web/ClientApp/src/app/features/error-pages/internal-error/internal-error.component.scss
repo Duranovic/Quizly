@@ -1,5 +1,5 @@
 @import '../../../../variables';
-.not-found-container{
+.internal-error-container{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,6 +33,13 @@
       @include media-xs{
         font-size: 2rem;
         margin-top: -41px;
+      }
+    }
+    P{
+      color: $text-color;
+      span{
+        color: $dark-green;
+        font-weight: bold;
       }
     }
   }
