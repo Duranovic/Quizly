@@ -67,5 +67,10 @@ namespace Quizly.API.Services
         {
             throw new NotImplementedException();
         }
+
+        IEnumerable<Document> IDocumentService.PinManyDocuments(string[] ids, bool flag)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

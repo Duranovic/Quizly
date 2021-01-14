@@ -49,6 +49,11 @@ namespace Quizly.API.Controllers
         {
             return _documentService.PinDocument(id);
         }
+        [HttpPatch]
+        public IEnumerable<Document> PinManyDocuments(string[] ids, bool flag)
+        {
+            return _documentService.PinManyDocuments(ids, flag);
+        }
 
         [HttpPut]
         public Document Create([FromBody] Document document)

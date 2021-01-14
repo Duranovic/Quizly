@@ -49,6 +49,20 @@ namespace Quizly.API.Services
             _documents.FindOneAndReplace(x => x._id == id, newDocument);
             return newDocument;
         }
+
+        public IEnumerable<Document> PinManyDocuments(string[] ids, bool flag)
+        {
+            List<Document> pinnedDocuments = new List<Document>();
+            foreach(string documentId in ids)
+            {
+                Document document = _documents.Find(x => x._id == documentId).FirstOrDefault();
+                document.pinned = flag;
+                _documents.FindOneAndReplace(x=>x._id == document._id, document);
+                pinnedDocuments.Add(document);
+            }
+            return pinnedDocuments;
+        }        
+
         public Document CreateDocument(Document document)
         {
             _documents.InsertOne(document);
