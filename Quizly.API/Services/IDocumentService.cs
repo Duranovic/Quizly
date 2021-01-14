@@ -11,6 +11,7 @@ namespace Quizly.API.Services
         public IEnumerable<Document> GetRecent();
         public IEnumerable<Document> GetPinned();
         public Document PinDocument(string id);
+        public IEnumerable<Document> PinManyDocuments(string[] ids, bool flag);
         public Document CreateDocument(Document document);
         public Document Delete(string id);
         public IEnumerable<Document> DeleteMany(string[] ids);
