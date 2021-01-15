@@ -12,12 +12,16 @@ import { RecentDocumentsComponent } from './documents/recent-documents/recent-do
 import { PinnedDocumentsComponent } from './documents/pinned-documents/pinned-documents.component';
 import { SharedDocumentsComponent } from './documents/shared-documents/shared-documents.component';
 import { DocumentDetailsComponent } from './document-details/document-details.component';
+import { VoteDetailsComponent } from './document-details/vote-details/vote-details.component';
+import { VoteEditComponent } from './document-details/vote-details/vote-edit/vote-edit.component';
+import { VoteOptionsComponent } from './document-details/vote-details/vote-options/vote-options.component';
+import { VotePreviewComponent } from './document-details/vote-details/vote-preview/vote-preview.component';
 
 
 
 
 @NgModule({
-  declarations: [MainComponent, DocumentsComponent, AsideComponent, HeaderComponent, AllDocumentsComponent, RecentDocumentsComponent, PinnedDocumentsComponent, SharedDocumentsComponent, DocumentDetailsComponent],
+  declarations: [MainComponent, DocumentsComponent, AsideComponent, HeaderComponent, AllDocumentsComponent, RecentDocumentsComponent, PinnedDocumentsComponent, SharedDocumentsComponent, DocumentDetailsComponent, VoteDetailsComponent, VoteEditComponent, VoteOptionsComponent, VotePreviewComponent],
   imports: [
     CommonModule,
     RouterModule,
