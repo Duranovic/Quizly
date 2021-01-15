@@ -20,6 +20,9 @@ import { PinnedDocumentsComponent } from './features/authorized/documents/pinned
 import { AllDocumentsComponent } from './features/authorized/documents/all-documents/all-documents.component';
 import { DocumentDetailsComponent } from './features/authorized/document-details/document-details.component';
 import { InternalErrorComponent } from './features/error-pages/internal-error/internal-error.component';
+import { VoteEditComponent } from './features/authorized/document-details/vote-details/vote-edit/vote-edit.component';
+import { VoteOptionsComponent } from './features/authorized/document-details/vote-details/vote-options/vote-options.component';
+import { VotePreviewComponent } from './features/authorized/document-details/vote-details/vote-preview/vote-preview.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +56,14 @@ import { InternalErrorComponent } from './features/error-pages/internal-error/in
                 {path: 'all-documents', component: AllDocumentsComponent}
               ]},
             {path: 'specs', component: DocumentsComponent},
-            {path: 'document/:id', component: DocumentDetailsComponent}
+            {path: 'document/:id', component: DocumentDetailsComponent,
+            children: [
+              {path: 'edit', component: VoteEditComponent},
+              {path: 'options', component: VoteOptionsComponent},
+              {path: 'preview', component: VotePreviewComponent},
+              {path: '',  redirectTo: 'edit', pathMatch: 'full'}
+            ]
+          }
           ]
       },
       {path: "**", redirectTo: 'not-found', pathMatch: "full"}

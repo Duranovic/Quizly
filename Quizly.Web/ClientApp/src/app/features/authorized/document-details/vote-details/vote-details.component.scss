@@ -1,0 +1,72 @@
+@import '../../../../../variables';
+.documents-container{
+  padding: 0 3.75rem;
+  position: relative;
+  @include media-xs{
+    padding: 0;
+  }
+
+}
+.tabs{
+  display: flex;
+  padding-left: 0;
+  li{
+    margin-right: 35px;
+    @include media-xs{
+      margin-right: 17px;
+    }
+    button{
+      color: $gray;
+      text-decoration: none;
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      font-size: 14px;
+      @include media-xs{
+        font-size: 12px;
+      }
+      span{
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        &::after{
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background-color: $primary-color;
+          @include media-xs{
+            height: 1px;
+          }
+      }
+        &:focus{
+          outline: none;
+        }
+      }
+      &:focus{
+        outline: none;
+        span{
+          outline: 5px auto -webkit-focus-ring-color;
+        }
+      }
+    }
+    &.active{
+      button{
+        position: relative;
+        color: white;
+        span{
+          padding-bottom: 5px;
+          @include media-xs{
+            padding-bottom: 2px;
+          }
+          &::after{
+            transition: width .3s;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
