@@ -7,8 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 using Quizly.API.Services;
 using Quizly.Model;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace Quizly.API.Controllers
 {
     [Route("api/[controller]/[action]")]
@@ -49,6 +47,7 @@ namespace Quizly.API.Controllers
         {
             return _documentService.PinDocument(id);
         }
+        
         [HttpPatch]
         public IEnumerable<Document> PinManyDocuments(string[] ids, bool flag)
         {
