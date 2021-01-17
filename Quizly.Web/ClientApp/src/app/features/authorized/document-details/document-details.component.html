@@ -1,3 +1,4 @@
 <app-vote-details *ngIf="document.type=='vote'"></app-vote-details>
-<app-poll-detail *ngIf="document.type=='poll'"></app-poll-details>
-<app-quiz-detail *ngIf="document.type=='quiz'"></app-quiz-details>
+<app-poll-details *ngIf="document.type=='poll'"></app-poll-details>
+<app-quiz-details *ngIf="document.type=='quiz'"></app-quiz-details>
+<h1 *ngIf="document.type==null" style="color: white">DOCUMENT DOES NOT HAVE ANY TYPE</h1>
