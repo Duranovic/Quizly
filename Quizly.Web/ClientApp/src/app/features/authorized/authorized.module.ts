@@ -16,12 +16,14 @@ import { VoteDetailsComponent } from './document-details/vote-details/vote-detai
 import { VoteEditComponent } from './document-details/vote-details/vote-edit/vote-edit.component';
 import { VoteOptionsComponent } from './document-details/vote-details/vote-options/vote-options.component';
 import { VotePreviewComponent } from './document-details/vote-details/vote-preview/vote-preview.component';
+import { PollDetailsComponent } from './document-details/poll-details/poll-details.component';
+import { QuizDetailsComponent } from './document-details/quiz-details/quiz-details.component';
 
 
 
 
 @NgModule({
-  declarations: [MainComponent, DocumentsComponent, AsideComponent, HeaderComponent, AllDocumentsComponent, RecentDocumentsComponent, PinnedDocumentsComponent, SharedDocumentsComponent, DocumentDetailsComponent, VoteDetailsComponent, VoteEditComponent, VoteOptionsComponent, VotePreviewComponent],
+  declarations: [MainComponent, DocumentsComponent, AsideComponent, HeaderComponent, AllDocumentsComponent, RecentDocumentsComponent, PinnedDocumentsComponent, SharedDocumentsComponent, DocumentDetailsComponent, VoteDetailsComponent, VoteEditComponent, VoteOptionsComponent, VotePreviewComponent, PollDetailsComponent, QuizDetailsComponent],
   imports: [
     CommonModule,
     RouterModule,
