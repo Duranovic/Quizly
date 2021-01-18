@@ -1,21 +1,37 @@
-<div class="form-container">
-  <div class="form-group extra-spacing">
-    <div class="custom-input-w-icon no-icon">
-      <input id="vote-name" type="text" placeholder="Vote custom name" autocomplete="off">
-      <span class="focusIndicator"></span>
+<div class="row">
+  <div class="col-7">
+    <div class="form-container">
+      <div class="form-group extra-spacing">
+        <div class="custom-input-w-icon no-icon">
+          <input id="vote-name" type="text" placeholder="Vote custom name" autocomplete="off">
+          <span class="focusIndicator"></span>
+        </div>
+      </div>
+      <div class="form-group extra-spacing">
+        <div class="custom-input-w-icon no-icon">
+          <textarea class="custom-textarea" name="" id="" rows="6">This is description!</textarea>
+        </div>
+      </div>
+      <div class="form-group extra-spacing">
+        <button class="secondary-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32.565" height="25.323" viewBox="0 0 32.565 25.323">
+            <path id="Icon_awesome-home" data-name="Icon awesome-home" d="M15.85,8.823,5.427,17.407v9.265a.9.9,0,0,0,.9.9l6.335-.016a.9.9,0,0,0,.9-.9V21.245a.9.9,0,0,1,.9-.9h3.618a.9.9,0,0,1,.9.9v5.407a.9.9,0,0,0,.9.907l6.333.018a.9.9,0,0,0,.9-.9V17.4L16.714,8.823A.689.689,0,0,0,15.85,8.823Zm16.464,5.835-4.726-3.9V2.932a.678.678,0,0,0-.678-.678H23.743a.678.678,0,0,0-.678.678v4.1L18,2.873a2.714,2.714,0,0,0-3.448,0L.245,14.658a.678.678,0,0,0-.09.955L1.6,17.366a.678.678,0,0,0,.956.092L15.85,6.505a.689.689,0,0,1,.865,0l13.3,10.952a.678.678,0,0,0,.955-.09l1.442-1.752a.678.678,0,0,0-.1-.957Z" transform="translate(0.001 -2.254)"/>
+          </svg>
+          <span>Save</span>
+        </button>
+      </div>
     </div>
   </div>
-  <div class="form-group extra-spacing">
-    <div class="custom-input-w-icon no-icon">
-      <textarea class="custom-textarea" name="" id="" rows="6">This is description!</textarea>
+  <div class="col-5">
+    <div class="form-group">
+      <div class="custom-image-uploader">
+        <input type="file" name="vote-image" id="vote-image">
+        <img class="custom-image-uploader__image" src="assets/feather-upload-cloud.svg" alt="Upload image">
+        <div class="custom-image-uploader__text">
+          <p>Drag your file inside of the box or,</p>
+          <p>Click in the box to select a file</p>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="form-group extra-spacing">
-    <button class="secondary-button">
-      <svg xmlns="http://www.w3.org/2000/svg" width="32.565" height="25.323" viewBox="0 0 32.565 25.323">
-        <path id="Icon_awesome-home" data-name="Icon awesome-home" d="M15.85,8.823,5.427,17.407v9.265a.9.9,0,0,0,.9.9l6.335-.016a.9.9,0,0,0,.9-.9V21.245a.9.9,0,0,1,.9-.9h3.618a.9.9,0,0,1,.9.9v5.407a.9.9,0,0,0,.9.907l6.333.018a.9.9,0,0,0,.9-.9V17.4L16.714,8.823A.689.689,0,0,0,15.85,8.823Zm16.464,5.835-4.726-3.9V2.932a.678.678,0,0,0-.678-.678H23.743a.678.678,0,0,0-.678.678v4.1L18,2.873a2.714,2.714,0,0,0-3.448,0L.245,14.658a.678.678,0,0,0-.09.955L1.6,17.366a.678.678,0,0,0,.956.092L15.85,6.505a.689.689,0,0,1,.865,0l13.3,10.952a.678.678,0,0,0,.955-.09l1.442-1.752a.678.678,0,0,0-.1-.957Z" transform="translate(0.001 -2.254)"/>
-      </svg>
-      <span>Save</span>
-    </button>
   </div>
 </div>
