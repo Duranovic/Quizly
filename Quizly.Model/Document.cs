@@ -9,7 +9,6 @@ namespace Quizly.Model
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string _id { get; set; }
-        public int id { get; set; }
         public string title { get; set; }
         public string type { get; set; }
         public DateTime dateTime { get; set; }
