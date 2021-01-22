@@ -1,4 +1,4 @@
-<form novalidate [formGroup]="voteEditFormGroup" (ngSubmit)="submitForm()">
+<form novalidate [formGroup]="voteEditFormGroup" (ngSubmit)="submitForm()" *ngIf="voteEditFormGroup">
   <div class="row">
     <div class="col-7">
       <div class="form-container">
