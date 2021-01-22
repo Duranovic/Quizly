@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { DocumentsApiService } from 'src/app/core/services/documents-api.service';
+import {Document} from '../../../../../shared/models/document';
 
 @Component({
   selector: 'app-vote-edit',
@@ -11,16 +14,14 @@ export class VoteEditComponent implements OnInit {
   voteEditFormGroup: FormGroup;
   imagePath;
   url;
+  document: Document;
 
-  constructor() { 
-    this.voteEditFormGroup = new FormGroup({
-      name: new FormControl(""),
-      description: new FormControl("This is a description!"),
-      image: new FormControl("")
-    });    
+  constructor(private documentService: DocumentsApiService, private route: ActivatedRoute) { 
+    this.document = new Document(); 
   }
 
   ngOnInit() {
+    this.getDocumentDetails(this.route.snapshot._urlSegment.segments[2].path);      
   }
   submitForm(){
     
@@ -43,5 +44,16 @@ export class VoteEditComponent implements OnInit {
         this.url = reader.result; 
     }
   }
-
+  getDocumentDetails(id:string){
+    this.documentService.getDocumentById(id).subscribe({
+      next: (data: Document)=>{
+        this.document = data;
+        this.voteEditFormGroup = new FormGroup({
+          name: new FormControl(this.document.title),
+          description: new FormControl((this.document.desctiption)?this.document.desctiption:"Vote description"),
+          image: new FormControl("")
+        }); 
+      }
+    })
+  }
 }
