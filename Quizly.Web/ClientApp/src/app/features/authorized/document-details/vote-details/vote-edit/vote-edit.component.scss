@@ -1,11 +1,21 @@
+@import '../../../../../../variables';
+
 .form-container{
   padding-top: 1.5rem;
   width: 100%;
   max-width: 573px;
+  @include media-xs{
+    margin-bottom: 0;
+  }
   .custom-input-w-icon{
     width: 100%;
   }
   textarea{
+    width: 100%;
+  }
+}
+.custom-image-uploader{
+  @include media-xs{
     width: 100%;
   }
 }

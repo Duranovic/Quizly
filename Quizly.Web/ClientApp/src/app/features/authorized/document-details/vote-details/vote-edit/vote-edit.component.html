@@ -1,6 +1,6 @@
 <form novalidate [formGroup]="voteEditFormGroup" (ngSubmit)="submitForm()" *ngIf="voteEditFormGroup">
   <div class="row">
-    <div class="col-7">
+    <div class="col-12 col-md-7">
       <div class="form-container">
         <div class="form-group extra-spacing">
           <div class="custom-input-w-icon no-icon">
@@ -23,7 +23,7 @@
         </div>
       </div>
     </div>
-    <div class="col-5">
+    <div class="col-12 col-md-5">
       <div class="form-group">
         <div class="custom-image-uploader" [ngClass]="{'custom-image-uploader--image-uploaded':url}">
           <input type="file" name="vote-image" id="vote-image" formControlName="image" (change)="onFileChanged($event)">
