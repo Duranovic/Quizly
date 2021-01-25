@@ -1,3 +1,3 @@
 export class Config{
-    static baseUrl:string = "http://localhost:65189";
+    static baseUrl:string = "http://localhost:65189/api";
 }
