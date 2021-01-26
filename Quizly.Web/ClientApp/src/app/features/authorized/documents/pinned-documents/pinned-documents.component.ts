@@ -19,7 +19,7 @@ export class PinnedDocumentsComponent implements OnInit {
   spinner: Spinner = new Spinner();
   searchKey: string = "";
 
-  constructor(documentService: DocumentsApiService, private _documentService: DocumentsService, private router: Router) {
+  constructor(documentService: DocumentsApiService, private router: Router) {
     this.documentService = documentService;
    }
 
