@@ -1,1 +1,14 @@
-<p>vote-options works!</p>
+<div class="vote-options-container">
+    <div class="add-option-container">
+        <a href="#">Add +</a>
+    </div>
+    <p *ngIf="!options">There is no options added yet</p>
+    <ul>
+        <li *ngFor="let option of options">
+            <p>
+                {{option}}
+            </p>
+            <a href="#">X</a>
+        </li>
+    </ul>
+</div>

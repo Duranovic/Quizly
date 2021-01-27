@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VoteOptionsComponent implements OnInit {
 
+
+  options: any =  [
+    "Some option", "Option 2", "Unpopular option", "Something else"
+  ]
+
   constructor() { }
 
   ngOnInit() {
