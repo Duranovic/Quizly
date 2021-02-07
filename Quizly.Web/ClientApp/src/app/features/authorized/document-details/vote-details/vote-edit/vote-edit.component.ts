@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common'
 import { ActivatedRoute } from '@angular/router';
 import { DocumentsApiService } from 'src/app/core/services/documents-api.service';
 import {Document} from '../../../../../shared/models/document';
@@ -16,12 +17,17 @@ export class VoteEditComponent implements OnInit {
   url;
   document: Document;
 
-  constructor(private documentService: DocumentsApiService, private route: ActivatedRoute) { 
+  constructor(private documentService: DocumentsApiService, private route: ActivatedRoute, private location: Location) { 
     this.document = new Document(); 
   }
 
   ngOnInit() {
-    this.getDocumentDetails(this.route.snapshot._urlSegment.segments[2].path);      
+    let locationPath = this.location.path();
+    let locationSegments: any[];
+    if (locationPath.length) 
+      locationSegments = locationPath.split('/');
+    let id:string = locationSegments[locationSegments.length - 2];    
+    this.getDocumentDetails(id);
   }
   submitForm(){
     

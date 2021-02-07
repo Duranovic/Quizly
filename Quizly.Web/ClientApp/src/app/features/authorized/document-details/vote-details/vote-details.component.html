@@ -1,17 +1,17 @@
 <div class="documents-container">
   <ul class="tabs">
-      <li  [ngClass]="activePanel=='general' ? 'active' : ''">
-          <button (click)="setActivePanel('general')" [routerLink]="['edit']">
+      <li [routerLinkActive]="'active'">
+          <button [routerLink]="['edit']">
             <span tabindex="-1">General</span>
           </button>
       </li>
-      <li  [ngClass]="activePanel=='options' ? 'active' : ''">
-        <button (click)="setActivePanel('options')" [routerLink]="['options']">
+      <li [routerLinkActive]="'active'">
+        <button  [routerLink]="['options']">
           <span tabindex="-1">Options</span>
         </button>
     </li>
-      <li [ngClass]="activePanel=='preview' ? 'active' : ''">
-          <button (click)="setActivePanel('preview')" [routerLink]="['preview']">
+      <li  [routerLinkActive]="'active'">
+          <button [routerLink]="['preview']">
             <span tabindex="-1">Preview</span>
           </button>
       </li>

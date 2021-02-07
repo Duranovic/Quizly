@@ -12,30 +12,29 @@ export class DocumentsApiService {
   documents: Document[];
   recentDocuments: Document[];
   pinnedDocuments: Document[];
-  globalConfig: Config;
-  constructor(readonly http: HttpClient) {
+  constructor(readonly http: HttpClient, private readonly config:Config) {
 
    }
    getDocumentById(id:string){
-    return this.http.get(`${Config.baseUrl}/documents/GetDocumentById?id=${id}`);
+    return this.http.get(`${this.config.baseUrl}/documents/GetDocumentById?id=${id}`);
    }
     getDocuments (){
-      return this.http.get(`${Config.baseUrl}/documents/get`).pipe(
+      return this.http.get(`${this.config.baseUrl}/documents/get`).pipe(
         tap((data:Document[])=>{this.documents = data})
       );
     }
     getRecentDocuments (){
-      return this.http.get(`${Config.baseUrl}/documents/getRecent`).pipe(
+      return this.http.get(`${this.config.baseUrl}/documents/getRecent`).pipe(
         tap((data:Document[])=>{this.recentDocuments = data})
       );
     }
     getPinnedDocuments (){
-      return this.http.get(`${Config.baseUrl}/documents/getPinned`).pipe(
+      return this.http.get(`${this.config.baseUrl}/documents/getPinned`).pipe(
         tap((data:Document[])=>{this.pinnedDocuments = data})
       );
     }
     pinDocument(id:string){
-      return this.http.patch(`${Config.baseUrl}/documents/pinDocument/${id}`, true);
+      return this.http.patch(`${this.config.baseUrl}/documents/pinDocument/${id}`, true);
     }
     createDocument(titleAttr: string, typeAttr: string){
       let newDocument: Document = {
@@ -44,6 +43,6 @@ export class DocumentsApiService {
         pinned : false,
         type: typeAttr
       };
-      return this.http.put(`${Config.baseUrl}/documents/create`, newDocument);
+      return this.http.put(`${this.config.baseUrl}/documents/create`, newDocument);
     }
 }

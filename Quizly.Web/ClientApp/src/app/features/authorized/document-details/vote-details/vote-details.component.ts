@@ -10,7 +10,6 @@ import { DocumentsApiService } from 'src/app/core/services/documents-api.service
 export class VoteDetailsComponent implements OnInit {
 
   document: Document;
-  activePanel: string = 'general';
   constructor(private documentService: DocumentsApiService, private route: ActivatedRoute) {
     this.document = new Document();
   }
@@ -25,8 +24,4 @@ export class VoteDetailsComponent implements OnInit {
       }
     })
   }
-  setActivePanel(activePanel: string){
-    this.activePanel = activePanel;
-  }
-
 }
