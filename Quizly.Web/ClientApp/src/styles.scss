@@ -1,15 +1,18 @@
-
+@import './fonts';
 @import './variables';
+
 body{
   background-color: $bg-color;
 }
 main{
   position: relative;
 }
-// label{
-//   position: absolute;
-//   opacity: 0;
-// }
+h1, h2, h3, h4, h5, h6, b, th{
+  font-family: $font-PtSans-Bold;
+}
+span, label, p, a, i, div, section{
+  font-family: $font-PtSans;
+} 
 button{
   border: none;
   background: none;
