@@ -10,14 +10,10 @@ import {Spinner} from 'src/app/shared/models/spinner';
   styleUrls: ['./documents.component.scss']
 })
 export class DocumentsComponent implements OnInit {
-  activePanel: string = 'recent';
 
   constructor() {
    }
 
   ngOnInit() {
-  }
-  setActivePanel(activePanel: string){
-    this.activePanel = activePanel;
   }
 }

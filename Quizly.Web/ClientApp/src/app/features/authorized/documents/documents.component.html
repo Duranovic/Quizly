@@ -1,22 +1,22 @@
 <div class="documents-container">
     <ul class="tabs">
-        <li  [ngClass]="activePanel=='recent' ? 'active' : ''">
-            <button (click)="setActivePanel('recent')" [routerLink]="['recent-documents']">
+        <li   [routerLinkActive]="'active'">
+            <button [routerLink]="['recent-documents']">
               <span tabindex="-1">Recent</span>
             </button>
         </li>
-        <li  [ngClass]="activePanel=='your-documents' ? 'active' : ''">
-          <button (click)="setActivePanel('your-documents')" [routerLink]="['all-documents']">
+        <li   [routerLinkActive]="'active'">
+          <button [routerLink]="['all-documents']">
             <span tabindex="-1">Your documents</span>
           </button>
       </li>
-        <li [ngClass]="activePanel=='shared' ? 'active' : ''">
-            <button (click)="setActivePanel('shared')" [routerLink]="['shared-documents']">
+        <li  [routerLinkActive]="'active'">
+            <button [routerLink]="['shared-documents']">
               <span tabindex="-1">Shared with me</span>
             </button>
         </li>
-        <li [ngClass]="activePanel=='pinned' ? 'active' : ''">
-            <button (click)="setActivePanel('pinned')" [routerLink]="['pinned-documents']">
+        <li  [routerLinkActive]="'active'">
+            <button [routerLink]="['pinned-documents']">
               <span tabindex="-1">Pinned</span>
             </button>
         </li>

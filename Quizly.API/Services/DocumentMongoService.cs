@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using MongoDB.Driver;
 using Quizly.Model;
 
@@ -16,65 +17,65 @@ namespace Quizly.API.Services
             _documents = database.GetCollection<Document>(settings.DocumentsCollectionName);
         }
 
-        public IEnumerable<Document> Get()
+        public async Task<IEnumerable<Document>> Get()
         {
-            var documents = _documents.Find(document => true).ToList();
+            var documents = await _documents.FindAsync(document => true).Result.ToListAsync();
             return documents;
         }
 
-        public Document GetDocumentById(string id)
+        public async Task<Document> GetDocumentById(string id)
         {
-            return _documents.Find(x => x._id == id).FirstOrDefault();
+            return await _documents.Find(x => x._id == id).FirstOrDefaultAsync();
         }
 
-        public IEnumerable<Document> GetPinned()
+        public async Task<IEnumerable<Document>> GetPinned()
         {
-            return _documents.Find(document => document.pinned).ToList();
+            return await _documents.FindAsync(document => document.pinned).Result.ToListAsync();
         }
 
-        public IEnumerable<Document> GetRecent()
+        public async Task<IEnumerable<Document>> GetRecent()
         {
-            return _documents.Find(document => true).Limit(5).ToList();
+            return await _documents.FindAsync(document => true).Result.ToListAsync();
         }
 
-        public Document Delete(string id)
+        public async Task<Document> Delete(string id)
         {            
-            return _documents.FindOneAndDelete(x => x._id == id);
+            return await _documents.FindOneAndDeleteAsync(x => x._id == id);
         }
 
-        public Document PinDocument(string id)
+        public async Task<Document> PinDocument(string id)
         {
-            var newDocument = _documents.Find(document => document._id == id).FirstOrDefault();
+            var newDocument = await _documents.Find(document => document._id == id).FirstOrDefaultAsync();
             newDocument.pinned = !newDocument.pinned;
-            _documents.FindOneAndReplace(x => x._id == id, newDocument);
+            await _documents.FindOneAndReplaceAsync(x => x._id == id, newDocument);
             return newDocument;
         }
 
-        public IEnumerable<Document> PinManyDocuments(string[] ids, bool flag)
+        public async Task<IEnumerable<Document>> PinManyDocuments(string[] ids, bool flag)
         {
             List<Document> pinnedDocuments = new List<Document>();
             foreach(string documentId in ids)
             {
-                Document document = _documents.Find(x => x._id == documentId).FirstOrDefault();
+                Document document = await _documents.FindAsync(x => x._id == documentId).Result.FirstOrDefaultAsync();
                 document.pinned = flag;
-                _documents.FindOneAndReplace(x=>x._id == document._id, document);
+                await _documents.FindOneAndReplaceAsync(x=>x._id == document._id, document);
                 pinnedDocuments.Add(document);
             }
             return pinnedDocuments;
         }        
 
-        public Document CreateDocument(Document document)
+        public async Task<Document> CreateDocument(Document document)
         {
-            _documents.InsertOne(document);
+            await _documents.InsertOneAsync(document);
             return document;
         }
 
-        public IEnumerable<Document> DeleteMany(string[] ids)
+        public async Task<IEnumerable<Document>> DeleteMany(string[] ids)
         {
             List<Document> deletedDocuments = new List<Document>();
             foreach(string documentId in ids)
             {
-                deletedDocuments.Add(_documents.FindOneAndDelete(x => x._id == documentId));
+                deletedDocuments.Add(await _documents.FindOneAndDeleteAsync(x => x._id == documentId));
             }
             return deletedDocuments;
         }

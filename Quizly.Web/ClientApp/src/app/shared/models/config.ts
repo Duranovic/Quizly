@@ -1,3 +1,7 @@
+import { Injectable } from '@angular/core';
+@Injectable({
+    providedIn: 'root'
+  })
 export class Config{
-    static baseUrl:string = "http://localhost:65189/api";
+    public readonly baseUrl:string = "https://localhost:44395/api";
 }

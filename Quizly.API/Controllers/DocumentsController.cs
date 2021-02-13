@@ -19,55 +19,55 @@ namespace Quizly.API.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Document> Get()
+        public Task<IEnumerable<Document>> Get()
         {
             return _documentService.Get();
         }
 
         [HttpGet]
-        public Document GetDocumentById(string id)
+        public Task<Document> GetDocumentById(string id)
         {
             return _documentService.GetDocumentById(id);
         }
 
         [HttpGet]
-        public IEnumerable<Document> GetPinned()
+        public Task<IEnumerable<Document>> GetPinned()
         {
             return _documentService.GetPinned();
         }
 
         [HttpGet]
-        public IEnumerable<Document> GetRecent()
+        public Task<IEnumerable<Document>> GetRecent()
         {
             return _documentService.GetRecent();
         }
 
         [HttpPatch("{id}")]
-        public Document PinDocument(string id)
+        public Task<Document> PinDocument(string id)
         {
             return _documentService.PinDocument(id);
         }
         
         [HttpPatch]
-        public IEnumerable<Document> PinManyDocuments(string[] ids, bool flag)
+        public Task<IEnumerable<Document>> PinManyDocuments(string[] ids, bool flag)
         {
             return _documentService.PinManyDocuments(ids, flag);
         }
 
         [HttpPut]
-        public Document Create([FromBody] Document document)
+        public Task<Document> Create([FromBody] Document document)
         {
             return _documentService.CreateDocument(document);
         }
 
         [HttpDelete]
-        public Document Delete(string id)
+        public Task<Document> Delete(string id)
         {
             return _documentService.Delete(id);
         }
 
         [HttpDelete]
-        public IEnumerable<Document> DeleteMany(string[] ids)
+        public Task<IEnumerable<Document>> DeleteMany(string[] ids)
         {
             return _documentService.DeleteMany(ids);
         }
