@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+
 import { MainComponent } from './main/main.component';
 import { DocumentsComponent } from './documents/documents.component';
 import { AsideComponent } from './main/aside/aside.component';
@@ -29,7 +31,8 @@ import { QuizDetailsComponent } from './document-details/quiz-details/quiz-detai
     RouterModule,
     SharedModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ]
 })
 export class AuthorizedModule { }

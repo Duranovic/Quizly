@@ -1,13 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DocumentsApiService } from 'src/app/core/services/documents-api.service';
+import { fadeIn } from 'src/app/shared/animations/fadeIn-animation';
 import {Document} from 'src/app/shared/models/document';
 import { Spinner } from 'src/app/shared/models/spinner';
 
 @Component({
   selector: 'app-recent-documents',
   templateUrl: './recent-documents.component.html',
-  styleUrls: ['./recent-documents.component.scss']
+  styleUrls: ['./recent-documents.component.scss'],
+  animations: [
+    fadeIn
+  ]
 })
 export class RecentDocumentsComponent implements OnInit {
   recentDocuments: Document[] = [];

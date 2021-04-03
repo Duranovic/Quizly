@@ -5,6 +5,7 @@ import { EnterPasswordComponent } from './enter-password/enter-password.componen
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
 
 
@@ -17,7 +18,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    BrowserAnimationsModule
   ]
 })
 export class AuthentificationModule { }
