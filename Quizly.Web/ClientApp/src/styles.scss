@@ -182,6 +182,8 @@ ul{
   color: $gray;
   padding: 18px;
   transition: outline .3s;
+  min-height: 70px;
+  max-height: 200px;
   &:focus{
     outline: none;
     border-color: $primary-color;
@@ -223,6 +225,7 @@ ul{
       width: 100%;
       height: 240px;
       border: 1px solid $gray;
+      object-fit: cover;
     }
     .secondary-button{
       margin-top: 52px;
@@ -399,7 +402,7 @@ a{
 
 .panels{
   height: 80vh;
-  overflow: auto;
+  overflow: hidden;
   .custom-input-w-icon{
     display: inline-block;
     @include media-xs{
