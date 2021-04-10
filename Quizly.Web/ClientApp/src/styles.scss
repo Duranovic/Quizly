@@ -80,6 +80,12 @@ ul{
         width: 100%;
       }
     }
+    .not-valid-control &{
+      border-color: $red;
+      &~.focusIndicator{
+        background-color: $red;
+      }
+    }
   }
   .focusIndicator{
     position: absolute;
@@ -254,11 +260,12 @@ ul{
   padding: 0.8em;
   line-height: 1.5rem;
   transition: background-color .3s;
-  &:hover{
+  &:hover, &:focus{
     background-color: transparentize($color: $primary-color, $amount: 0.5);
   }
-  &:focus{
+  &[disabled]{
     background-color: transparentize($color: $primary-color, $amount: 0.5);
+    color: gainsboro;
   }
   @include media-xs{
     font-size: 1rem;
@@ -267,6 +274,7 @@ ul{
   }
 }
 .form-group{
+  position: relative;
   max-width: 573px;
   margin-bottom: 46px;
 }
@@ -505,3 +513,27 @@ a{
   }
 }
 
+.error-msg-group{
+  position: absolute;
+  top: -20px;
+  right: 0;
+  display: none;
+  @include media-xs{
+    font-size: -25px;
+  }
+  span{
+    font-size: 14px;
+    display: inline-block;
+    color: white;
+    margin-right: 8px;
+    background-color: $red;
+    padding: 2px 8px;
+    border-radius: 5px;
+    @include media-xs{
+      font-size: 10px;
+    }
+  }
+  .not-valid-control &{
+    display: block;
+  }
+}

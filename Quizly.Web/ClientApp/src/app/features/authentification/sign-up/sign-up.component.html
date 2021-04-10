@@ -2,22 +2,35 @@
   <h1>Sign up</h1>
   <div class="sign-up__content">
     <div class="sign-up__form-container">
-      <form method="POST" [formGroup]="signUpForm">
-        <div class="form-group">
+    
+      <form method="POST" [formGroup]="signUpForm" action="test">
+        <div class="form-group" [ngClass]="{'not-valid-control' : signUpForm.controls['email'].touched && signUpForm.controls['email'].invalid }">
+          <div class="error-msg-group">
+            <span class="error-msg" *ngIf="signUpForm.controls['email'].errors?.required">Email is required!</span>
+            <span class="error-msg" *ngIf="signUpForm.controls['email'].errors?.email">Email is not valid!</span>
+          </div>
           <div class="custom-input-w-icon custom-input-email">
             <label for="email" class="hide-visually">Email</label>
             <input id="email" name="email" type="text" placeholder="Email" autocomplete="off" formControlName="email">
             <span class="focusIndicator"></span>
           </div>
         </div>
-        <div class="form-group">
+        <div class="form-group" [ngClass]="{'not-valid-control' : signUpForm.controls['password'].touched && signUpForm.controls['password'].invalid }">
+          <div class="error-msg-group">
+            <span class="error-msg" *ngIf="signUpForm.controls['password'].errors?.required">Password is required!</span>
+            <span class="error-msg" *ngIf="signUpForm.controls['password'].errors?.pattern">Password is not valid!</span>
+          </div>
           <div class="custom-input-w-icon custom-input-password">
             <label for="password" class="hide-visually">Password</label>
             <input id="password" type="password" placeholder="Password" autocomplete="off" formControlName="password">
             <span class="focusIndicator"></span>
           </div>
         </div>
-        <div class="form-group">
+        <div class="form-group" [ngClass]="{'not-valid-control' : signUpForm.controls['repeatPassword'].touched && signUpForm.controls['repeatPassword'].invalid }">
+          <div class="error-msg-group">
+            <span class="error-msg" *ngIf="signUpForm.controls['repeatPassword'].errors?.required">Password is required!</span>
+            <span class="error-msg" *ngIf="signUpForm.controls['repeatPassword'].errors?.mustMatch">Repeat password needs to be the same as password</span>
+          </div>
           <div class="custom-input-w-icon custom-input-password">
             <label for="repeatPassword" class="hide-visually">Repeat password</label>
             <input id="repeatPassword" type="password" placeholder="Repeat password" autocomplete="off"
@@ -26,7 +39,7 @@
           </div>
         </div>
         <div class="form-group">
-          <button class="primary-btn">Sign up</button>
+          <button class="primary-btn" [disabled]="signUpForm.invalid">Sign up</button>
         </div>
         <div class="form-footer">
           <p>Already have an account? <a [routerLink]="['/sign-in']">Sign in</a></p>
