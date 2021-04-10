@@ -5,8 +5,8 @@
       <form [formGroup]="formGroup" method="POST">
         <div class="form-group" [ngClass]="{'not-valid-control' : formGroup.controls['email'].touched && formGroup.controls['email'].invalid }">
           <div class="error-msg-group">
-            <span class="error-msg" *ngIf="formGroup.controls['email'].errors?.required">Email is required!</span>
-            <span class="error-msg" *ngIf="formGroup.controls['email'].errors?.email">Email is not valid!</span>
+            <span class="error-msg" *ngIf="formGroup.controls['email'].errors?.required">{{formErrorMessage.emailRequired}}</span>
+            <span class="error-msg" *ngIf="formGroup.controls['email'].errors?.email">{{formErrorMessage.emailInvalid}}</span>
           </div>
           <div class="custom-input-w-icon custom-input-email">
             <label for="email" class="hide-visually">Email</label>
@@ -16,7 +16,7 @@
         </div>
         <div class="form-group" [ngClass]="{'not-valid-control' : formGroup.controls['password'].touched && formGroup.controls['password'].invalid }">
           <div class="error-msg-group">
-            <span class="error-msg" *ngIf="formGroup.controls['password'].errors?.required">Password is required!</span>
+            <span class="error-msg" *ngIf="formGroup.controls['password'].errors?.required">{{formErrorMessage.passwordRequired}}</span>
           </div>
           <div class="custom-input-w-icon custom-input-password">
             <label for="password" class="hide-visually">Password</label>

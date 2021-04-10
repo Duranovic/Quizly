@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CustomValidators } from 'src/app/shared/models/customValidators';
+import { FormErrorMessage } from 'src/app/shared/models/form-error-message';
 
 @Component({
   selector: 'app-sign-up',
@@ -10,8 +11,11 @@ import { CustomValidators } from 'src/app/shared/models/customValidators';
 export class SignUpComponent implements OnInit {
 
   signUpForm: FormGroup;
+  formErrorMessage: FormErrorMessage;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder) { 
+    this.formErrorMessage = new FormErrorMessage();
+  }
 
   ngOnInit() {
     this.signUpForm = this.formBuilder.group({
@@ -23,11 +27,11 @@ export class SignUpComponent implements OnInit {
         CustomValidators.required,
         CustomValidators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$')
       ]],
-      repeatPassword: ['', 
+      confirmPassword: ['', 
         CustomValidators.required
       ]
     }, {
-      validators: [CustomValidators.mustMatch("password", "repeatPassword")]
+      validators: [CustomValidators.mustMatch()]
     })
   }
 

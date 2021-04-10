@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Form, FormBuilder, FormGroup } from '@angular/forms';
 import { CustomValidators } from 'src/app/shared/models/customValidators';
+import { FormErrorMessage } from 'src/app/shared/models/form-error-message';
 
 @Component({
   selector: 'app-sign-in',
@@ -9,8 +10,11 @@ import { CustomValidators } from 'src/app/shared/models/customValidators';
 })
 export class SignInComponent implements OnInit {
   formGroup: FormGroup;
+  formErrorMessage: FormErrorMessage;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder) { 
+    this.formErrorMessage = new FormErrorMessage();
+  }
 
   ngOnInit() {
     this.formGroup = this.formBuilder.group({

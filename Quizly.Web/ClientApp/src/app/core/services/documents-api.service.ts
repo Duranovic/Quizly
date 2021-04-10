@@ -12,9 +12,8 @@ export class DocumentsApiService {
   documents: Document[];
   recentDocuments: Document[];
   pinnedDocuments: Document[];
-  constructor(readonly http: HttpClient, private readonly config:Config) {
-
-   }
+  constructor(readonly http: HttpClient, private readonly config:Config) {}
+  
    getDocumentById(id:string){
     return this.http.get(`${this.config.baseUrl}/documents/GetDocumentById?id=${id}`);
    }

@@ -15,7 +15,7 @@ export class CustomValidators extends Validators{
         }
       }
 
-      static mustMatch(controlName: string, matchingControlName: string) {
+      static mustMatch(controlName: string ="password", matchingControlName: string = "confirmPassword") {
         return (formGroup: FormGroup) => {
             const control = formGroup.controls[controlName];
             const matchingControl = formGroup.controls[matchingControlName];
