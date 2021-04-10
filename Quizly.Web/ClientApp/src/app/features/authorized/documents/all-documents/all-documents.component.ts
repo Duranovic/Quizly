@@ -4,11 +4,16 @@ import { DocumentsApiService } from 'src/app/core/services/documents-api.service
 import {DocumentsService} from 'src/app/core/services/documents.service';
 import { Spinner } from 'src/app/shared/models/spinner';
 import { Router } from '@angular/router';
+import { animate, style, transition, trigger } from '@angular/animations';
+import { fadeIn } from 'src/app/shared/animations/fadeIn-animation';
 
 @Component({
   selector: 'app-all-documents',
   templateUrl: './all-documents.component.html',
-  styleUrls: ['./all-documents.component.scss']
+  styleUrls: ['./all-documents.component.scss'],
+  animations: [
+    fadeIn
+  ]
 })
 export class AllDocumentsComponent implements OnInit {
   documentService: DocumentsApiService;

@@ -6,17 +6,17 @@
     height: auto;
     width: 352px;
     text-align: right;
-    &::before{
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        height: 1px;
-        width: calc(100% - 70px);
-        border: 1px solid #707070;
+    .custom-input-w-icon{
+        width: calc(100% - 61px);
+        margin-right: 33px;
+    }
+    button{
+        img{
+            width: 16px;
+        }
     }
 }
+
 p{
     margin-top: 24px;
     color: $gray
@@ -31,6 +31,7 @@ ul{
         p{
             flex: 1;
             margin: 0;
+            font-size: 14px;
         }
     }
 }

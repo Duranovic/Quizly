@@ -1,7 +1,9 @@
+import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DocumentsApiService } from 'src/app/core/services/documents-api.service';
 import { DocumentsService } from 'src/app/core/services/documents.service';
+import { fadeIn } from 'src/app/shared/animations/fadeIn-animation';
 import {Document} from 'src/app/shared/models/document';
 import { Spinner } from 'src/app/shared/models/spinner';
 
@@ -9,7 +11,10 @@ import { Spinner } from 'src/app/shared/models/spinner';
 @Component({
   selector: 'app-pinned-documents',
   templateUrl: './pinned-documents.component.html',
-  styleUrls: ['./pinned-documents.component.scss']
+  styleUrls: ['./pinned-documents.component.scss'],
+  animations: [
+    fadeIn
+  ]
 })
 export class PinnedDocumentsComponent implements OnInit {
 

@@ -2,45 +2,61 @@
   <h1>Sign up</h1>
   <div class="sign-up__content">
     <div class="sign-up__form-container">
-          <div class="form-group">
-            <label for="email">Email</label>
-            <div class="custom-input-w-icon custom-input-email">
-              <input id="email" name="email" type="text" placeholder="Email">
-              <span class="focusIndicator"></span>
-            </div>
+    
+      <form method="POST" [formGroup]="signUpForm">
+        <div class="form-group" [ngClass]="{'not-valid-control' : signUpForm.controls['email'].touched && signUpForm.controls['email'].invalid }">
+          <div class="error-msg-group">
+            <span class="error-msg" *ngIf="signUpForm.controls['email'].errors?.required">{{formErrorMessage.emailRequired}}</span>
+            <span class="error-msg" *ngIf="signUpForm.controls['email'].errors?.email">{{formErrorMessage.emailInvalid}}</span>
           </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <div class="custom-input-w-icon custom-input-password">
-              <input id="password" type="password" placeholder="Password">
-              <span class="focusIndicator"></span>
-            </div>
+          <div class="custom-input-w-icon custom-input-email">
+            <label for="email" class="hide-visually">Email</label>
+            <input id="email" name="email" type="text" placeholder="Email" autocomplete="off" formControlName="email">
+            <span class="focusIndicator"></span>
           </div>
-          <div class="form-group">
-            <label for="repeatPassword">Repeat password</label>
-            <div class="custom-input-w-icon custom-input-password">
-              <input id="repeatPassword" type="password" placeholder="Repeat password">
-              <span class="focusIndicator"></span>
-            </div>
-          </div>
-          <div class="form-group">
-            <button class="primary-btn">Sign up</button>
-          </div>
-          <div class="form-footer">
-            <p>Already have an account? <a [routerLink]="['/sign-in']">Sign in</a></p>
-          </div>
-      </div>
-      <div class="sign-up__right-section">
-        <h2 aria-hidden="true">or</h2>
-        <p aria-hidden="true">or use email to sign up</p>
-        <div class="sign-up__authentification-methods">
-          <ul role="list" title="Authentification">
-            <li><a href="#"> <img src="assets/Google.svg" alt="Google"></a></li>
-            <li><a href="#"><img src="assets/Windows.svg" alt="Microsoft"></a></li>
-            <li><a href="#"><img src="assets/Linkedin.svg" alt="Linkedin"></a></li>
-            <li><a href="#"><img src="assets/Facebook.svg" alt="Facebook"></a></li>
-          </ul>
         </div>
+        <div class="form-group" [ngClass]="{'not-valid-control' : signUpForm.controls['password'].touched && signUpForm.controls['password'].invalid }">
+          <div class="error-msg-group">
+            <span class="error-msg" *ngIf="signUpForm.controls['password'].errors?.required">{{formErrorMessage.passwordRequired}}</span>
+            <span class="error-msg" *ngIf="signUpForm.controls['password'].errors?.pattern">{{formErrorMessage.passwordInvalid}}</span>
+          </div>
+          <div class="custom-input-w-icon custom-input-password">
+            <label for="password" class="hide-visually">Password</label>
+            <input id="password" type="password" placeholder="Password" autocomplete="off" formControlName="password">
+            <span class="focusIndicator"></span>
+          </div>
+        </div>
+        <div class="form-group" [ngClass]="{'not-valid-control' : signUpForm.controls['confirmPassword'].touched && signUpForm.controls['confirmPassword'].invalid }">
+          <div class="error-msg-group">
+            <span class="error-msg" *ngIf="signUpForm.controls['confirmPassword'].errors?.required">{{formErrorMessage.confirmPasswordRequired}}</span>
+            <span class="error-msg" *ngIf="signUpForm.controls['confirmPassword'].errors?.mustMatch">{{formErrorMessage.confirmPasswordDoesNotMatch}}</span>
+          </div>
+          <div class="custom-input-w-icon custom-input-password">
+            <label for="confirmPassword" class="hide-visually">Confirm password</label>
+            <input id="confirmPassword" type="password" placeholder="Confirm password" autocomplete="off"
+              formControlName="confirmPassword">
+            <span class="focusIndicator"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <button class="primary-btn" [disabled]="signUpForm.invalid">Sign up</button>
+        </div>
+        <div class="form-footer">
+          <p>Already have an account? <a [routerLink]="['/sign-in']">Sign in</a></p>
+        </div>
+      </form>
+    </div>
+    <div class="sign-up__right-section">
+      <h2 aria-hidden="true">or</h2>
+      <p aria-hidden="true">or use email to sign up</p>
+      <div class="sign-up__authentification-methods">
+        <ul role="list" title="Authentification">
+          <li><a href="#"> <img src="assets/Google.svg" alt="Google"></a></li>
+          <li><a href="#"><img src="assets/Windows.svg" alt="Microsoft"></a></li>
+          <li><a href="#"><img src="assets/Linkedin.svg" alt="Linkedin"></a></li>
+          <li><a href="#"><img src="assets/Facebook.svg" alt="Facebook"></a></li>
+        </ul>
       </div>
+    </div>
   </div>
 </div>

@@ -1,4 +1,4 @@
-<section class="recent-panel" [spinner]="spinner.isBusy" [overlay]="true">
+<section class="recent-panel" [spinner]="spinner.isBusy" [overlay]="true" @fadeIn>
   <div class="custom-input-w-icon custom-input-search" *ngIf="recentDocuments.length > 0">
     <input type="text" placeholder="Search for document" autocomplete="off" [value]="searchKey" (input)="filterDocument($event)">
     <span class="focusIndicator"></span>
