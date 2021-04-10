@@ -14,8 +14,8 @@ export class SignInComponent implements OnInit {
 
   ngOnInit() {
     this.formGroup = this.formBuilder.group({
-      email: ['', [CustomValidators.email]],
-      password: [''],
+      email: ['', [CustomValidators.required, CustomValidators.email]],
+      password: ['', CustomValidators.required],
       rememberMe: [true]
     })
   }

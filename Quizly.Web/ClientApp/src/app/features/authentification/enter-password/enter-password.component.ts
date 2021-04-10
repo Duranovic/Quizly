@@ -16,7 +16,7 @@ export class EnterPasswordComponent implements OnInit {
       password: ['', [CustomValidators.required, CustomValidators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$')]],
       repeatPassword: ['', [CustomValidators.required]]
     }, {
-      validators: [CustomValidators.checkPasswordMatches()]
+      validators: [CustomValidators.mustMatch("password", "repeatPassword")]
     })
   }
 

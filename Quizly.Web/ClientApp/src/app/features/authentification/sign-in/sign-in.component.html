@@ -3,14 +3,21 @@
   <div class="sign-in__content">
     <div class="sign-in__form-container">
       <form [formGroup]="formGroup" method="POST">
-        <div class="form-group">
+        <div class="form-group" [ngClass]="{'not-valid-control' : formGroup.controls['email'].touched && formGroup.controls['email'].invalid }">
+          <div class="error-msg-group">
+            <span class="error-msg" *ngIf="formGroup.controls['email'].errors?.required">Email is required!</span>
+            <span class="error-msg" *ngIf="formGroup.controls['email'].errors?.email">Email is not valid!</span>
+          </div>
           <div class="custom-input-w-icon custom-input-email">
             <label for="email" class="hide-visually">Email</label>
             <input id="email" name="email" type="text" placeholder="Email" autocomplete="off" formControlName="email">
             <span class="focusIndicator"></span>
           </div>
         </div>
-        <div class="form-group">
+        <div class="form-group" [ngClass]="{'not-valid-control' : formGroup.controls['password'].touched && formGroup.controls['password'].invalid }">
+          <div class="error-msg-group">
+            <span class="error-msg" *ngIf="formGroup.controls['password'].errors?.required">Password is required!</span>
+          </div>
           <div class="custom-input-w-icon custom-input-password">
             <label for="password" class="hide-visually">Password</label>
             <input id="password" type="password" placeholder="Password" autocomplete="off" formControlName="password">
@@ -27,7 +34,7 @@
           </div>
         </div>
         <div class="form-group">
-          <button class="primary-btn">Sign in</button>
+          <button class="primary-btn" [disabled]="formGroup.invalid">Sign in</button>
         </div>
         <div class="form-footer">
           <p>Don’t have an account? <a [routerLink]="['/sign-up']">Sign up</a></p>

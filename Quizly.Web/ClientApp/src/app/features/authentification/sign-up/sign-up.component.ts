@@ -29,8 +29,6 @@ export class SignUpComponent implements OnInit {
     }, {
       validators: [CustomValidators.mustMatch("password", "repeatPassword")]
     })
-
-    this.signUpForm.statusChanges.subscribe(x=>console.log(this.signUpForm));
   }
 
 }
