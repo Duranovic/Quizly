@@ -10,9 +10,7 @@ import {Document} from 'src/app/shared/models/document';
 export class DocumentDetailsComponent implements OnInit {
   document: Document;
   activePanel: string = 'general';
-  constructor(private documentService: DocumentsApiService, private route: ActivatedRoute) {
-    this.document = new Document();
-  }
+  constructor(private documentService: DocumentsApiService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.getDocumentDetails(this.route.snapshot.paramMap.get("id"));

@@ -39,5 +39,8 @@
       </tr>
     </tbody>
   </table>
-  <h2 class="no-documents-message" *ngIf="filteredRecentDocuments.length <= 0">There is no recent documents</h2>
+  <div class="no-documents-message" *ngIf="filteredRecentDocuments.length <= 0">
+    <img src="/assets/metro-pin.svg" alt="Metro pin">
+    <h2>You didn't open any document recently!</h2>
+  </div>
 </section>

@@ -35,6 +35,9 @@
       </tr>
     </tbody>
   </table>
-  <h2 class="no-documents-message" *ngIf="filteredDocuments.length <= 0">There is documents</h2>
+  <div class="no-documents-message" *ngIf="filteredDocuments.length <= 0">
+    <img src="/assets/metro-pin.svg" alt="Metro pin">
+    <h2>There is no documents</h2>
+  </div>
 </section>
 
