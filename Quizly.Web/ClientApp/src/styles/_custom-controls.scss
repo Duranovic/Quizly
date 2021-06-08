@@ -111,8 +111,12 @@
             height: 100%;
             background: $dark-gray;
             border-radius: 4px;
+            & + .checkmark{
+                display: none;
+            }
             &:checked {
                 & + .checkmark {
+                    display: block;
                     pointer-events: none;
                     position: absolute;
                     background-image: url("/assets/ionic-md-checkmark-green.svg");

@@ -8,7 +8,7 @@
     "build:ssr": "ng run Quizly.Web:server:dev",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "cypress open"
   },
   "private": true,
   "dependencies": {
@@ -33,6 +33,7 @@
     "rxjs": "^6.5.3",
     "ts-node": "~8.4.1",
     "tslint": "~5.20.0",
+    "web-animations-js": "^2.3.2",
     "zone.js": "0.9.1"
   },
   "devDependencies": {
@@ -44,6 +45,7 @@
     "@types/jasminewd2": "~2.0.8",
     "@types/node": "~12.11.6",
     "codelyzer": "^5.2.0",
+    "cypress": "^7.5.0",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "^5.0.2",
