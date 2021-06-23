@@ -44,13 +44,13 @@
                     </li>
                   </ul>
                 </div>
-                <div class="form-group form-group-with-label" [ngClass]="{'not-valid-control': documentForm.controls['title'].touched && documentForm.controls['title'].invalid}">
+                <div class="form-group form-group-with-label" [ngClass]="{'not-valid-control': documentForm.controls['name'].touched && documentForm.controls['name'].invalid}">
                     <div class="error-msg-group">
-                      <span *ngIf="documentForm.controls['title'].errors?.required">You need to enter a name!</span>
+                      <span *ngIf="documentForm.controls['name'].errors?.required">You need to enter a name!</span>
                     </div>
                     <label for="document_name">Choose a name for document</label>
                     <div class="custom-input-w-icon no-icon">
-                      <input required id="document_name" name="document_name" type="text" placeholder="Enter a name" autocomplete="off" formControlName="title">
+                      <input required id="document_name" name="document_name" type="text" placeholder="Enter a name" autocomplete="off" formControlName="name">
                       <span class="focusIndicator"></span>
                     </div>
                 </div>

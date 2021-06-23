@@ -3,13 +3,13 @@
         <div class="custom-input-w-icon no-icon">
             <input id="vote-name" type="text" placeholder="Vote custom name" autocomplete="off" formControlName="name">
             <span class="focusIndicator"></span>
-          </div>
-          <button aria-label="Add an option">
-              <img  alt="Add icon" src="/assets/add-icon.svg">
-          </button>
+        </div>
+        <button aria-label="Add an option">
+            <img alt="Add icon" src="/assets/add-icon.svg">
+        </button>
     </div>
     <p *ngIf="!options">There is no options added yet</p>
-    <ul>
+    <ul *ngIf="options">
         <li *ngFor="let option of options">
             <p>
                 {{option}}

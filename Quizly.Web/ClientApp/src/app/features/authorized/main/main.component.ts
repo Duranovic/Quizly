@@ -13,7 +13,7 @@ export class MainComponent implements OnInit {
   isVisibleCreateDocumentModal: boolean = false;
   documentForm = this.formBuilder.group(
     {
-      title: ['', Validators.required],
+      name: ['', Validators.required],
       type: ['quiz', Validators.required]
     }
   )

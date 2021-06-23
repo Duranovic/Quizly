@@ -2,44 +2,46 @@
   <h1>Sign in</h1>
   <div class="sign-in__content">
     <div class="sign-in__form-container">
-      <form [formGroup]="formGroup" method="POST">
-        <div class="form-group" [ngClass]="{'not-valid-control' : formGroup.controls['email'].touched && formGroup.controls['email'].invalid }">
+      <form [formGroup]="formGroup" method="POST" data-test-id="form">
+        <div class="form-group" [ngClass]="{'not-valid-control' : formGroup.controls['email'].touched && formGroup.controls['email'].invalid }" data-test-id="emailFormGroup">
           <div class="error-msg-group">
             <span class="error-msg" *ngIf="formGroup.controls['email'].errors?.required">{{formErrorMessage.emailRequired}}</span>
             <span class="error-msg" *ngIf="formGroup.controls['email'].errors?.email">{{formErrorMessage.emailInvalid}}</span>
           </div>
           <div class="custom-input-w-icon custom-input-email">
             <label for="email" class="hide-visually">Email</label>
-            <input id="email" name="email" type="text" placeholder="Email" autocomplete="off" formControlName="email">
+            <input id="email" name="email" type="text" placeholder="Email" autocomplete="off" formControlName="email" data-test-id="email">
             <span class="focusIndicator"></span>
           </div>
         </div>
-        <div class="form-group" [ngClass]="{'not-valid-control' : formGroup.controls['password'].touched && formGroup.controls['password'].invalid }">
+        <div class="form-group" [ngClass]="{'not-valid-control' : formGroup.controls['password'].touched && formGroup.controls['password'].invalid }" data-test-id="passwordFormGroup">
           <div class="error-msg-group">
             <span class="error-msg" *ngIf="formGroup.controls['password'].errors?.required">{{formErrorMessage.passwordRequired}}</span>
           </div>
           <div class="custom-input-w-icon custom-input-password">
             <label for="password" class="hide-visually">Password</label>
-            <input id="password" type="password" placeholder="Password" autocomplete="off" formControlName="password">
+            <input id="password" type="password" placeholder="Password" autocomplete="off" formControlName="password" data-test-id="password">
             <span class="focusIndicator"></span>
           </div>
         </div>
-        <div class="form-group">
+        <div class="form-group" data-test-id="rememberMeFormGroup">
           <div class="custom-checkbox">
             <div class="checkbox-wrapper">
-              <input id="rememberMe" type="checkbox" formControlName="rememberMe">
+              <input id="rememberMe" type="checkbox" formControlName="rememberMe" data-test-id="rememberMe">
               <span class="checkmark"></span>
             </div>
             <label for="rememberMe">Remember me?</label>
           </div>
         </div>
         <div class="form-group">
-          <button class="primary-btn" [disabled]="formGroup.invalid">Sign in</button>
+          <button class="primary-btn" [disabled]="formGroup.invalid" data-test-id="submit">Sign in</button>
         </div>
         <div class="form-footer">
-          <p>Don’t have an account? <a [routerLink]="['/sign-up']">Sign up</a></p>
+          <p>Don’t have an account? 
+            <a [routerLink]="['/sign-up']" data-test-id="signUpLink">Sign up</a>
+          </p>
           <p>
-            <a [routerLink]="['/forgot-password']">Forgot Password?</a>
+            <a [routerLink]="['/forgot-password']" data-test-id="forgotPasswordLink">Forgot Password?</a>
           </p>
         </div>
       </form>
