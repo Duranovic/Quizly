@@ -23,6 +23,12 @@ import { InternalErrorComponent } from './features/error-pages/internal-error/in
 import { VoteEditComponent } from './features/authorized/document-details/vote-details/vote-edit/vote-edit.component';
 import { VoteOptionsComponent } from './features/authorized/document-details/vote-details/vote-options/vote-options.component';
 import { VotePreviewComponent } from './features/authorized/document-details/vote-details/vote-preview/vote-preview.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from '../reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { AppEffects } from './app.effects';
 
 @NgModule({
   declarations: [
@@ -67,7 +73,20 @@ import { VotePreviewComponent } from './features/authorized/document-details/vot
           ]
       },
       {path: "**", redirectTo: 'not-found', pathMatch: "full"}
-    ])
+    ]),
+    StoreModule.forRoot(reducers, {
+      metaReducers,
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true
+      }
+    }),
+    StoreDevtoolsModule.instrument({
+       name: "QUIZLY Application",
+       maxAge: 25, 
+       logOnly: environment.production 
+      }),
+    EffectsModule.forRoot([AppEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]

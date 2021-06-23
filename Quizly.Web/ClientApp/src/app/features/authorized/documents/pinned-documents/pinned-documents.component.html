@@ -3,7 +3,7 @@
     <input type="text" placeholder="Search for document" autocomplete="off" [value]="searchKey" (input)="filterDocuments($event)">
     <span class="focusIndicator"></span>
   </div>
-  <table *ngIf="filteredPinnedDocuments.length > 0">
+  <table *ngIf="filteredPinnedDocuments">
     <thead>
       <tr>
         <th></th>
@@ -37,5 +37,6 @@
   <div class="no-documents-message" *ngIf="filteredPinnedDocuments.length <= 0">
     <img src="/assets/metro-pin.svg" alt="Metro pin">
     <h2>There is no pinned documents</h2>
+    <h2 style="color: red;" *ngIf="error$ | async as error">{{error.message}}</h2>
   </div>
 </section>

@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { DocumentsApiService } from 'src/app/core/services/documents-api.service';
 import { fadeIn } from 'src/app/shared/animations/fadeIn-animation';
 import {Document} from 'src/app/shared/models/document';
 import { Spinner } from 'src/app/shared/models/spinner';
+import { getRecentDocumentsError, getRecentDocuments, State } from '../../state/document.reducer';
+import * as DocumentActions from '../../state/document.actions';
+import { interval, Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-recent-documents',
@@ -19,25 +24,33 @@ export class RecentDocumentsComponent implements OnInit {
   documentService: DocumentsApiService;
   spinner: Spinner = new Spinner();
   searchKey: string = "";
-  constructor(documentService: DocumentsApiService, private router: Router) {
+  toggleDocument: boolean;
+
+  data$: Observable<Document[]>;
+
+  recentDocuments$: Observable<Document[]>;
+  error$: Observable<string>;
+
+  constructor(private store:Store<State>, documentService: DocumentsApiService, private router: Router) {
     this.documentService = documentService;
    }
 
   ngOnInit() {
     this.spinner.show();
-    this.documentService.getRecentDocuments().subscribe({
-      next: (data:any)=>{
+    this.store.dispatch(DocumentActions.loadRecentDocuments());
+    this.store.select(getRecentDocuments).subscribe((data: Document[])=>{
         this.recentDocuments = data;
-        this.filteredRecentDocuments = this.recentDocuments;
+        this.filteredRecentDocuments = data;
         this.spinner.hide();
       }
-    })
+    )
+    this.error$ = this.store.select(getRecentDocumentsError);
   }
   pinDocument($event, id:string){
-    let document = this.recentDocuments.find(x=>x._id == id);
-    document.pinned = !document.pinned;
-    this.documentService.pinDocument(id).subscribe();
     $event.stopPropagation();
+    // let document = this.recentDocuments.find(x=>x._id == id);
+    // document.pinned = !document.pinned;
+    // this.documentService.pinDocument(id).subscribe();
   }
   filterDocument($event){
     this.searchKey = $event.target.value;

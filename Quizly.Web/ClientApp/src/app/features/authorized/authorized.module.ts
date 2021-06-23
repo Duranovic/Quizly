@@ -20,6 +20,10 @@ import { VoteOptionsComponent } from './document-details/vote-details/vote-optio
 import { VotePreviewComponent } from './document-details/vote-details/vote-preview/vote-preview.component';
 import { PollDetailsComponent } from './document-details/poll-details/poll-details.component';
 import { QuizDetailsComponent } from './document-details/quiz-details/quiz-details.component';
+import { StoreModule } from '@ngrx/store';
+import { documentReducer } from './state/document.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { DocumentEffects } from './state/document.effects';
 
 
 
@@ -32,7 +36,9 @@ import { QuizDetailsComponent } from './document-details/quiz-details/quiz-detai
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    StoreModule.forFeature('documents', documentReducer),
+    EffectsModule.forFeature([DocumentEffects])
   ]
 })
 export class AuthorizedModule { }

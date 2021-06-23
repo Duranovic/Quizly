@@ -6,6 +6,10 @@ import { Spinner } from 'src/app/shared/models/spinner';
 import { Router } from '@angular/router';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { fadeIn } from 'src/app/shared/animations/fadeIn-animation';
+import { getYourDocumentsError, State } from '../../state/document.reducer';
+import { Store } from '@ngrx/store';
+import {getAllDocuments} from '../../state/document.reducer'
+import * as DocumentActions from '../../state/document.actions';
 
 @Component({
   selector: 'app-all-documents',
@@ -21,25 +25,29 @@ export class AllDocumentsComponent implements OnInit {
   filteredDocuments: Document[] = [];
   spinner: Spinner = new Spinner();
   searchKey: string = "";
+  error$: any;
 
-  constructor(documentService: DocumentsApiService,private _documentService:DocumentsService, private router: Router) {
+  constructor(private store:Store<State> ,documentService: DocumentsApiService,private _documentService:DocumentsService, private router: Router) {
     this.documentService = documentService;
    }
 
   ngOnInit() {
     this.spinner.show();
-    this.documentService.getDocuments().subscribe({
-      next: (data:any)=>{
-        this.documents = data;
-        this.filteredDocuments = this.documents;
-        this.spinner.hide();
-      }
+    this.store.dispatch(DocumentActions.loadAllDocuments());
+
+    this.store.select(getAllDocuments).subscribe(data=>{
+      this.filteredDocuments = data;
+      this.documents = data;
+      this.spinner.hide();
     })
+
+    this.error$ = this.store.select(getYourDocumentsError);
   }
   pinDocument($event, id){
-    this.filteredDocuments = this._documentService.pinDocument(id, this.filteredDocuments);
-    this.documentService.pinDocument(id).subscribe();
     $event.stopPropagation();
+    // this.filteredDocuments = this._documentService.pinDocument(id, this.filteredDocuments);
+    // this.documentService.pinDocument(id).subscribe();
+    // this.store.dispatch(DocumentActions.loadAllDocuments());
   }
   filterDocuments($event){
     this.searchKey = $event.target.value;

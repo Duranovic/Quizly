@@ -10,49 +10,54 @@
               <img src="/assets/ionic-md-close.svg" alt="Close modal">
             </button>
             <div class="form-container">
-              <div class="form-group">
-                <label>Select type of document</label>
-                <ul>
-                  <li>
-                      <label for="quiz-document" (click)="documentTypeClick($event)" tabindex="0">
-                        <img class="black" src="/assets/Quiz - black.svg" alt="Add icon" tabindex="-1">
-                        <img class="original" src="/assets/Quiz - original.svg" alt="Add icon" tabindex="-1">
-                      </label>
-                      <input type="radio" id="quiz-document" name="type" value="quiz" formControlName="type">
-                  </li>
-                  <li>
-                      <label for="vote-document" (click)="documentTypeClick($event)" tabindex="0">
-                        <img class="black" src="/assets/Vote - black.svg" alt="Vote black icon" tabindex="-1">
-                        <img class="original" src="/assets/Vote - original.svg" alt="Vote selected icon" tabindex="-1">
-                      </label>
-                      <input type="radio" id="vote-document" name="type" value="vote" formControlName="type">
-                  </li>
-                  <li>
-                      <label for="poll-document" (click)="documentTypeClick($event)" tabindex="0">
-                        <img class="black" src="/assets/Poll - black.svg" alt="Poll black icon" tabindex="-1">
-                        <img class="original" src="/assets/Poll - original.svg" alt="Poll selected icon" tabindex="-1">
-                      </label>
-                      <input id="poll-document" type="radio" name="type" value="poll" formControlName="type">
-                  </li>
-                  <li>
-                      <label for="survey-document"  (click)="documentTypeClick($event)" tabindex="0">
-                        <img class="black" src="/assets/Survey - black.svg" alt="Survey black icon" tabindex="-1">
-                        <img class="original" src="/assets/Survey - original.svg" alt="Survey selected icon" tabindex="-1">
-                      </label>
-                      <input id="survey-document" type="radio" name="type" value="survey" formControlName="type">
-                  </li>
-                </ul>
-              </div>
-              <div class="form-group">
-                  <label for="document_name">Choose a name for document</label>
-                  <div class="custom-input-w-icon no-icon">
-                    <input required id="document_name" name="document_name" type="text" placeholder="Enter a name" autocomplete="off" formControlName="title">
-                    <span class="focusIndicator"></span>
-                  </div>
-              </div>
-              <div class="form-group">
-                <button class="primary-btn">Create</button>
-              </div>
+              <form [formGroup]="documentForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                  <label>Select type of document</label>
+                  <ul>
+                    <li class="selected">
+                        <label for="quiz-document" (click)="documentTypeClick($event)" tabindex="0">
+                          <img class="black" src="/assets/Quiz - black.svg" alt="Add icon" tabindex="-1">
+                          <img class="original" src="/assets/Quiz - original.svg" alt="Add icon" tabindex="-1">
+                        </label>
+                        <input type="radio" id="quiz-document" name="type" value="quiz" formControlName="type">
+                    </li>
+                    <li>
+                        <label for="vote-document" (click)="documentTypeClick($event)" tabindex="0">
+                          <img class="black" src="/assets/Vote - black.svg" alt="Vote black icon" tabindex="-1">
+                          <img class="original" src="/assets/Vote - original.svg" alt="Vote selected icon" tabindex="-1">
+                        </label>
+                        <input type="radio" id="vote-document" name="type" value="vote" formControlName="type">
+                    </li>
+                    <li>
+                        <label for="poll-document" (click)="documentTypeClick($event)" tabindex="0">
+                          <img class="black" src="/assets/Poll - black.svg" alt="Poll black icon" tabindex="-1">
+                          <img class="original" src="/assets/Poll - original.svg" alt="Poll selected icon" tabindex="-1">
+                        </label>
+                        <input id="poll-document" type="radio" name="type" value="poll" formControlName="type">
+                    </li>
+                    <li>
+                        <label for="survey-document"  (click)="documentTypeClick($event)" tabindex="0">
+                          <img class="black" src="/assets/Survey - black.svg" alt="Survey black icon" tabindex="-1">
+                          <img class="original" src="/assets/Survey - original.svg" alt="Survey selected icon" tabindex="-1">
+                        </label>
+                        <input id="survey-document" type="radio" name="type" value="survey" formControlName="type">
+                    </li>
+                  </ul>
+                </div>
+                <div class="form-group form-group-with-label" [ngClass]="{'not-valid-control': documentForm.controls['title'].touched && documentForm.controls['title'].invalid}">
+                    <div class="error-msg-group">
+                      <span *ngIf="documentForm.controls['title'].errors?.required">You need to enter a name!</span>
+                    </div>
+                    <label for="document_name">Choose a name for document</label>
+                    <div class="custom-input-w-icon no-icon">
+                      <input required id="document_name" name="document_name" type="text" placeholder="Enter a name" autocomplete="off" formControlName="title">
+                      <span class="focusIndicator"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <button class="primary-btn" [disabled]="documentForm.invalid">Create</button>
+                </div>
+              </form>
             </div>
           </form>
       </div>

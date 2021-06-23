@@ -3,12 +3,7 @@
     <input type="text" placeholder="Search for document" autocomplete="off" [value]="searchKey" (input)="filterDocuments($event)">
     <span class="focusIndicator"></span>
   </div>
-  <table *ngIf="filteredDocuments.length > 0">
-    <thead>
-      <tr>
-        <th></th>
-      </tr>
-    </thead>
+  <table *ngIf="filteredDocuments">
     <tbody>
       <tr *ngFor="let item of filteredDocuments" tabindex="0" (click)="openDocumentDetails(item._id)">
         <td>
@@ -35,6 +30,11 @@
       </tr>
     </tbody>
   </table>
-  <h2 class="no-documents-message" *ngIf="filteredDocuments.length <= 0">There is documents</h2>
+  <div class="no-documents-message" *ngIf="filteredDocuments.length <= 0">
+    <span class="material-icons">description</span>
+    <h2>There is no documents</h2>
+        <!-- TO DO - NEEDS BETTER WAY OF ERROR HANDLING - THIS IS TEMPORARY -->
+        <h2 style="color: red;" *ngIf="error$ | async as error">{{error.message}}</h2>
+  </div>
 </section>
 

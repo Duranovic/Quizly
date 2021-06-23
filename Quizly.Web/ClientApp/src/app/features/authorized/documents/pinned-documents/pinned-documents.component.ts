@@ -1,11 +1,14 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { DocumentsApiService } from 'src/app/core/services/documents-api.service';
 import { DocumentsService } from 'src/app/core/services/documents.service';
 import { fadeIn } from 'src/app/shared/animations/fadeIn-animation';
 import {Document} from 'src/app/shared/models/document';
 import { Spinner } from 'src/app/shared/models/spinner';
+import { getPinnedDocuments, getPinnedDocumentsError, State } from '../../state/document.reducer';
+import * as DocumentActions from '../../state/document.actions';
 
 
 @Component({
@@ -24,24 +27,30 @@ export class PinnedDocumentsComponent implements OnInit {
   spinner: Spinner = new Spinner();
   searchKey: string = "";
 
-  constructor(documentService: DocumentsApiService, private router: Router) {
+  toggleDocument: boolean;
+  error$: any;
+
+  constructor(private store: Store<State>, documentService: DocumentsApiService, private router: Router) {
     this.documentService = documentService;
    }
 
   ngOnInit() {
     this.spinner.show();
-    this.documentService.getPinnedDocuments().subscribe({
-      next: (data:any)=>{
-        this.pinnedDocuments = data;
-        this.filteredPinnedDocuments = this.pinnedDocuments;
-        this.spinner.hide();
-      }
+    this.store.dispatch(DocumentActions.loadPinnedDocuments());
+    this.store.select(getPinnedDocuments).subscribe(data=>{
+      this.filteredPinnedDocuments = data;
+      this.pinnedDocuments = data;
+      this.spinner.hide();
     })
+
+    this.error$ = this.store.select(getPinnedDocumentsError);
+
   }
   pinDocument($event, id){
-    this.filteredPinnedDocuments = this.filteredPinnedDocuments.filter(x=>x._id != id);
-    this.pinnedDocuments = this.pinnedDocuments.filter(x=>x._id != id);
-    this.documentService.pinDocument(id).subscribe();
+    // this.filteredPinnedDocuments = this.filteredPinnedDocuments.filter(x=>x._id != id);
+    // this.pinnedDocuments = this.pinnedDocuments.filter(x=>x._id != id);
+    // this.documentService.pinDocument(id).subscribe();
+    this.store.dispatch(DocumentActions.pinnDocument({documentId: id}))
     $event.stopPropagation();
   }
 

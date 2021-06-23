@@ -14,11 +14,10 @@ export class MainComponent implements OnInit {
   documentForm = this.formBuilder.group(
     {
       title: ['', Validators.required],
-      type: ['', Validators.required]
+      type: ['quiz', Validators.required]
     }
   )
   constructor(private formBuilder: FormBuilder, private documentService:DocumentsApiService, private router: Router) {
-
   }
 
   openCreateDocumentModalVisibillity(){

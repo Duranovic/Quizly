@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Config } from 'src/app/shared/models/config';
 import {Document} from 'src/app/shared/models/document';
@@ -18,14 +19,10 @@ export class DocumentsApiService {
     return this.http.get(`${this.config.baseUrl}/documents/GetDocumentById?id=${id}`);
    }
     getDocuments (){
-      return this.http.get(`${this.config.baseUrl}/documents/get`).pipe(
-        tap((data:Document[])=>{this.documents = data})
-      );
+      return this.http.get(`${this.config.baseUrl}/documents/get`);
     }
     getRecentDocuments (){
-      return this.http.get(`${this.config.baseUrl}/documents/getRecent`).pipe(
-        tap((data:Document[])=>{this.recentDocuments = data})
-      );
+      return this.http.get(`${this.config.baseUrl}/documents/getRecent`);
     }
     getPinnedDocuments (){
       return this.http.get(`${this.config.baseUrl}/documents/getPinned`).pipe(
@@ -33,6 +30,7 @@ export class DocumentsApiService {
       );
     }
     pinDocument(id:string){
+      alert(id);
       return this.http.patch(`${this.config.baseUrl}/documents/pinDocument/${id}`, true);
     }
     createDocument(titleAttr: string, typeAttr: string){
